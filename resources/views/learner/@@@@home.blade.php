@@ -1,4 +1,8 @@
-<?php $__env->startSection('content'); ?>
+@extends('layouts.app')
+
+
+
+@section('content')
 
     <?php
 
@@ -54,9 +58,9 @@
 
     ?>
 
-    <link href="<?php echo e(url('assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css')); ?>" rel="stylesheet">
-    <link href="<?php echo e(url('assets/js/calendar/packages/core/main.css')); ?>" rel='stylesheet' />
-    <link href="<?php echo e(url('assets/js/calendar/packages/daygrid/main.css')); ?>" rel='stylesheet' />
+    <link href="{{ url('assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/js/calendar/packages/core/main.css') }}" rel='stylesheet' />
+    <link href="{{ url('assets/js/calendar/packages/daygrid/main.css') }}" rel='stylesheet' />
     <style>
         .swal2-icon.swal2-info {
             border-color:  #f4a640!important;
@@ -249,320 +253,6 @@
         .fc-row .fc-content-skeleton{padding-bottom: 0!important;}
         .fc-head{background: #ffcb00}
         h5.title .badge{ font-size: 50% }
-
-        /* -------------------------------------------------------------------------- */
-        /*                            Book Now Page Section                           */
-        /* -------------------------------------------------------------------------- */
-        .book_lesson{
-            margin:0px auto;
-        }
-        .book_lesson_wrapper{
-            max-width:510px;
-            margin:0px auto;
-        }
-        .booked_lessons_list {
-            padding: 0px 12px;
-            height: 200px;
-            overflow-y: scroll;
-            max-width: 90%;
-            margin: 0 auto;
-        }
-        .booked-lessons_items {
-            display: flex;
-            align-items: center;
-            border: 1px solid #f4a640;
-            width: fit-content;
-            border-radius: 4px;
-            width: 100%;
-            height: 100%;
-            max-height: 110px;
-            margin-bottom: 10px;
-            overflow: hidden;
-        }
-        .booked-lessons_items:last-child{
-            margin-bottom: 0;
-        }
-        .lesson_info{
-            padding:15px;
-            background: #fff7ed;
-            width: 100%;
-            height: 100%;
-        }
-        .booked_lessons_list .lesson_info h4,
-        .added_to_cart_box h5{
-            font-size: 20px;
-            line-height:22px;
-            color: #17214d;
-            margin-bottom: 5px;
-        }
-        .booked_lessons_list .lesson_info p{
-            font-size: 18px;
-            line-height:22px;
-            color: #555185;
-        }
-        .delete_lesson_info{
-            display: flex;
-            height: 100%;
-        }
-        .delete_lesson_info a{
-            color:#eb5757;
-            display: flex;
-            padding:8px;
-            gap:5px;
-            align-items:center;
-            background-color:#feebd4;
-            height: 100%;
-            transition: all 0.2s ease-in-out;
-        }
-        .delete_lesson_info a:hover{
-            background-color:#f4ddc0;
-            transition: all 0.2s ease-in-out;
-        }
-        .delete_lesson_info svg{
-            fill:#eb5757;
-        }
-
-        .added_to_cart {
-            background: #ffffff;
-            border: 1px solid #d3d3d3;
-            border-radius: 5px;
-            padding: 31px;
-        }
-        .added_to_cart_box {
-            border: 1px solid #d3d3d3;
-            border-radius: 5px;
-            padding: 13px 21px;
-            height: 122px;
-        }
-        .added_to_cart_box ul li{
-            display: flex;
-            justify-content:space-between;
-            gap:15px;
-        }
-        .added_to_cart_box ul li .list_title,
-        .added_to_cart_box ul li .list_info{
-            font-size: 18px;
-            line-height: 30px;
-            color: #17214D;
-        }
-        .added_to_cart_box ul li .list_info{
-            color: #555185;
-        }
-        .lesson_test_box {
-            background: #17214d;
-            border-radius: 6px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            height: 150px;
-            padding: 20px 30px;
-            cursor: pointer;
-            margin:20px 0px;
-            transition: all 0.3s;
-        }
-        .lesson_test_box:hover{
-            transform:scale(1.04);
-            transition: all 0.3s;
-        }
-        .lesson_test_box h5{
-            font-size: 18px;
-            line-height: 24px;
-            color:#FFFFFF;
-            text-align: center;
-        }
-        .lesson_test_box span.lt_arrow_right {
-            width: 35px;
-            height: 35px;
-            display: inline-block;
-            background: #eda533;
-            line-height: 32px;
-            text-align: center;
-            border-radius: 100px;
-        }
-
-        .driving_lesson{
-            background: #ffffff;
-            border: 1px solid #d3d3d3;
-            border-radius: 5px;
-            position: relative;
-        }
-        .dl_header {
-            background: #e2eff1;
-            display: flex;
-            justify-content: center;
-            padding: 14px 0px;
-            border-radius: 5px 5px 0 0;
-        }
-        .dl_body{
-            padding:20px 30px 30px;
-        }
-        .dl_duration{
-            margin-top: 20px;
-        }
-        .dl_hours_duration{
-            margin-top: 20px;
-        }
-        .dl_hours_duration .form-check {
-            background: #e2eff1;
-            border: 1px solid #000000;
-            border-radius: 4px;
-            color: #17214d;
-            width: 102px;
-            padding:15px 10px;
-            display: flex;
-            flex-direction: column;
-        }
-        .checked-hour{
-            background: #17214d !important;
-            color: white !important;
-            border: 1px solid #f4a640 !important;
-        }
-        .checked-hour input[type="checkbox"]{
-            background-color: #ffffff !important;
-            border: 1px solid #f4a640 !important;
-        }
-        .dl_hours_duration .form-check input {
-            margin: 0;
-            margin-bottom: 10px;
-            border-color: #17214d;
-        }
-        .dl_hours_duration .form-check label{
-            font-weight: 400;
-            font-size: 24px;
-            line-height: 29px;
-        }
-        .menu_close-btn {
-            width: fit-content;
-        }
-        .menu_close-btn > img {
-            background: rgb(238, 111, 111);
-            padding: 4px;
-            border-radius: 100%;
-            cursor: pointer;
-            transition: 0.2s all;
-            position: absolute;
-            right: -13px;
-            top: -14px;
-        }
-        .availability_check,
-        .test_booking .choose_location{
-            appearance: none;
-            -moz-appearance: none;
-            -webkit-appearance: none;
-            outline: none;
-            background-image: url("/frontend_assets/images/right-black-arrow.svg") !important;
-            background-size: 8px !important;
-            background-position: calc(100% - 14px) center !important;
-            background-repeat: no-repeat !important;
-            background: #fff7ed;
-            border: 1px solid #f4a640;
-            border-radius: 2px;
-            font-family: "Product Sans";
-            font-style: normal;
-            font-weight: 400;
-            font-size: 17px;
-            line-height: 26px;
-            color: #17214d;
-            width: 100%;
-            max-width: 180px;
-            padding: 4px 23px 4px 11px;
-            margin-bottom: 10px;
-        }
-        .availability_check:focus{
-            box-shadow:none;
-            border: 1px solid #f4a640;
-        }
-        .dl_hours_duration button[type="submit"]{
-            font-family: "Product Sans";
-            font-size: 14px;
-            font-weight: 700;
-            color: #0a0951;
-            background: #f4a640;
-            text-transform: capitalize;
-            border-radius: 4px;
-            transition:all 0.3s;
-            padding: 12px 20px;
-            width: 100%;
-            max-width:224px;
-        }
-        .test_booking h4{
-            font-size: 18px;
-        }
-        .test_booking .choose_location{
-            max-width: 385px;
-            background: #17214d;
-            color: #ffffff;
-            border-radius:2px;
-            background-image: url("/frontend_assets/images/right-white.svg") !important;
-        }
-        .form-check-input[type=checkbox] {
-            width: 18px;
-            height: 18px;
-            margin-top: 1px;
-        }
-        .gender_check_list .form-check-input:checked ~ .form-check-label {
-            border: 1px solid #f4a640 ;
-        }
-
-        .form-check-input[type=checkbox]{
-            width: 20px;
-            height: 20px;
-            margin-top: 1px;
-        }
-        .password_reset a{
-            font-family:'Product Sans';
-            font-size: 16.5px;
-            line-height:22px;
-        }
-        .form-check-input[type=checkbox]:focus{
-            outline: 0;
-        }
-        .form-check-input[type=checkbox]{
-            background-color: transparent !important;
-            border-color: #E5E1DC;
-            cursor: pointer;
-        }
-        .form-check-input:checked[type=checkbox] {
-            background-image: url('/frontend_assets/images/check.png');
-            background-size: 10px;
-            background-repeat: no-repeat;
-            background-position:center;
-        }
-        .checked-hour{
-            background: #17214d !important;
-            color: white !important;
-            border: 1px solid #f4a640 !important;
-        }
-        .checked-hour input[type="checkbox"]{
-            background-color: #ffffff !important;
-            border: 1px solid #f4a640 !important;
-        }
-        .availability_check,
-        .test_booking .choose_location{
-            appearance: none;
-            -moz-appearance: none;
-            -webkit-appearance: none;
-            outline: none;
-            background-image: url("/frontend_assets/images/right-black-arrow.svg") !important;
-            background-size: 8px !important;
-            background-position: calc(100% - 14px) center !important;
-            background-repeat: no-repeat !important;
-            background: #fff7ed;
-            border: 1px solid #f4a640;
-            border-radius: 2px;
-            font-family: "Product Sans";
-            font-style: normal;
-            font-weight: 400;
-            font-size: 17px;
-            line-height: 26px;
-            color: #17214d;
-            width: 100%;
-            max-width: 180px;
-            padding: 4px 23px 4px 11px;
-            margin-bottom: 10px;
-        }
     </style>
 
     <style>
@@ -587,16 +277,7 @@
         .star.active {
             color: #ffa500;
         }
-        .form-check{
-            min-height: 1.5rem;
-            margin-bottom: 0.125rem;
-        }
-        label {
-            display: inline-block;
-        }
-        .form-check-input {
-            position: unset;
-        }
+
     </style>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
@@ -627,7 +308,7 @@
 
                             <li class="breadcrumb-item">
 
-                                <a href="<?php echo e(url('home')); ?>">Home</a>
+                                <a href="{{url('home')}}">Home</a>
 
                             </li>
 
@@ -659,25 +340,24 @@
 
                 <div class="card  bg-light no-card-border">
 
-                    <?php if(\Illuminate\Support\Facades\Session::get('success')): ?>
+                    @if(\Illuminate\Support\Facades\Session::get('success'))
                     <div class="alert-box success">
                         <div class="alert alert-success">
-                            <small><?php echo e(\Illuminate\Support\Facades\Session::get('success')); ?></small>
-                            <?php echo e(\Illuminate\Support\Facades\Session::put('success','')); ?>
-
+                            <small>{{\Illuminate\Support\Facades\Session::get('success')}}</small>
+                            {{\Illuminate\Support\Facades\Session::put('success','')}}
                         </div>
                     </div>
-                    <?php endif; ?>
+                    @endif
 
 
                     <div class="card-body">
 
 
-                        <?php if($dataCheck!=''): ?>
+                        @if($dataCheck!='')
 
-                            <a href="<?php echo e(url('/search/instructors/all')); ?>" class="pull-right btn btn-success">Find an instructor</a>
+                            <a href="{{ url('/search/instructors/all') }}" class="pull-right btn btn-success">Find an instructor</a>
 
-                        <?php endif; ?>
+                        @endif
 
 
 
@@ -685,23 +365,23 @@
 
                             <div class="m-r-10">
 
-                            <?php if( auth()->user()->avatar == ''): ?>
+                            @if( auth()->user()->avatar == '')
 
-                                <?php if( auth()->user()->gender == 'male'): ?>
+                                @if( auth()->user()->gender == 'male')
 
-                                <img src="<?php echo e(url('assets/images/users/default.png')); ?>" alt="user" class="image_preview rounded-circle" width="31">
+                                <img src="{{ url('assets/images/users/default.png') }}" alt="user" class="image_preview rounded-circle" width="31">
 
-                                <?php else: ?>
+                                @else
 
-                                <img src="<?php echo e(url('assets/images/users/default-female.png')); ?>" alt="user" class="image_preview rounded-circle" width="31">
+                                <img src="{{ url('assets/images/users/default-female.png') }}" alt="user" class="image_preview rounded-circle" width="31">
 
-                                <?php endif; ?>
+                                @endif
 
-                            <?php else: ?>
+                            @else
 
-                            <img src="<?php echo e(url('assets/images/users/'.auth()->user()->avatar)); ?>" alt="user" class="image_preview rounded-circle" width="31">
+                            <img src="{{ url('assets/images/users/'.auth()->user()->avatar) }}" alt="user" class="image_preview rounded-circle" width="31">
 
-                            <?php endif; ?>
+                            @endif
 
                             </div>
 
@@ -709,7 +389,7 @@
 
                                 <h3 class="m-b-0">Welcome back!</h3>
 
-                                <span><?php echo e(\Carbon\Carbon::now()->format('l jS \of F Y')); ?></span>
+                                <span>{{ \Carbon\Carbon::now()->format('l jS \of F Y') }}</span>
 
                             </div>
 
@@ -766,7 +446,7 @@
                                     <tbody>
 
                                     <?php $totalComplete=$totalBooked=$total=0; ?>
-                                    <?php $__currentLoopData = $instructors; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $inst): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    @foreach($instructors as $inst)
 
                                         <?php
                                         $rating = \App\UserRatings::select('review', \Illuminate\Support\Facades\DB::raw('count(score) as total, AVG(score) as avg'))
@@ -837,33 +517,33 @@
 
                                                     <div class="m-r-10">
 
-                                                        <?php if( $inst->avatar == ''): ?>
+                                                        @if( $inst->avatar == '')
 
-                                                            <?php if($inst->gender == 'male'): ?>
+                                                            @if($inst->gender == 'male')
 
-                                                            <img src="<?php echo e(url('assets/images/users/default.png')); ?>" alt="user" class="img-circle" width="60">
+                                                            <img src="{{ url('assets/images/users/default.png') }}" alt="user" class="img-circle" width="60">
 
-                                                            <?php else: ?>
+                                                            @else
 
-                                                            <img src="<?php echo e(url('assets/images/users/default-female.png')); ?>" alt="user" class="img-circle" width="60">
+                                                            <img src="{{ url('assets/images/users/default-female.png') }}" alt="user" class="img-circle" width="60">
 
-                                                            <?php endif; ?>
+                                                            @endif
 
-                                                        <?php else: ?>
+                                                        @else
 
-                                                            <img src="<?php echo e(url('assets/images/users/'.$inst->avatar)); ?>" alt="user" class="img-circle rounded-circle" width="60">
+                                                            <img src="{{ url('assets/images/users/'.$inst->avatar) }}" alt="user" class="img-circle rounded-circle" width="60">
 
-                                                        <?php endif; ?>
+                                                        @endif
 
                                                     </div>
 
                                                     <div class="">
 
-                                                        <h4 class="m-b-0 font-16"><?php echo e($inst->name); ?> <?php echo e($inst->lname); ?></h4>
+                                                        <h4 class="m-b-0 font-16">{{$inst->name}} {{$inst->lname}}</h4>
 
                                                         <?php /*<span>{{$inst->email}}</span><br>*/ ?>
 
-                                                        <span><?php echo e($inst->phone); ?></span>
+                                                        <span>{{$inst->phone}}</span>
 
                                                     </div>
 
@@ -871,67 +551,67 @@
 
                                             </td>
 
-                                            <td><?php echo e($completed); ?></td>
+                                            <td>{{ $completed }}</td>
 
-                                            <td><?php echo e($total); ?></td>
+                                            <td>{{ $total }}</td>
 
-                                            <td><a data-fancybox="gallery" href="<?php echo e(asset('assets/images/cars/'.$vehicle_image)); ?>"><img src="<?php echo e(asset('assets/images/cars/'.$vehicle_image)); ?>" alt="" height="60"></a></td>
+                                            <td><a data-fancybox="gallery" href="{{ asset('assets/images/cars/'.$vehicle_image) }}"><img src="{{ asset('assets/images/cars/'.$vehicle_image) }}" alt="" height="60"></a></td>
 
-                                            <td><?php echo e($rating->review); ?></td>
+                                            <td>{{ $rating->review }}</td>
 
                                             <td>
 
 
-                                                    <?php if(floor($rating->avg)>0 && floor($rating->avg)==1): ?>
+                                                    @if(floor($rating->avg)>0 && floor($rating->avg)==1)
                                                         <span class="star active" data-value="1" style="font-size: 18px;">&#9733;</span>
                                                         <span class="star " data-value="2" style="font-size: 18px;">&#9733;</span>
                                                         <span class="star " data-value="3" style="font-size: 18px;">&#9733;</span>
                                                         <span class="star " data-value="4" style="font-size: 18px;">&#9733;</span>
                                                         <span class="star " data-value="5" style="font-size: 18px;">&#9733;</span>
-                                                    <?php elseif(floor($rating->avg)==2): ?>
+                                                    @elseif(floor($rating->avg)==2)
                                                         <span class="star active" data-value="1" style="font-size: 18px;">&#9733;</span>
                                                         <span class="star active" data-value="2" style="font-size: 18px;">&#9733;</span>
                                                     <span class="star " data-value="3" style="font-size: 18px;">&#9733;</span>
                                                     <span class="star " data-value="4" style="font-size: 18px;">&#9733;</span>
                                                     <span class="star " data-value="5" style="font-size: 18px;">&#9733;</span>
-                                                    <?php elseif(floor($rating->avg)==3): ?>
+                                                    @elseif(floor($rating->avg)==3)
                                                         <span class="star active" data-value="1" style="font-size: 18px;">&#9733;</span>
                                                         <span class="star active" data-value="2" style="font-size: 18px;">&#9733;</span>
                                                         <span class="star active" data-value="3" style="font-size: 18px;">&#9733;</span>
                                                     <span class="star " data-value="4" style="font-size: 18px;">&#9733;</span>
                                                     <span class="star " data-value="5" style="font-size: 18px;">&#9733;</span>
-                                                    <?php elseif(floor($rating->avg)==4): ?>
+                                                    @elseif(floor($rating->avg)==4)
                                                         <span class="star active" data-value="1" style="font-size: 18px;">&#9733;</span>
                                                         <span class="star active" data-value="2" style="font-size: 18px;">&#9733;</span>
                                                         <span class="star active" data-value="3" style="font-size: 18px;">&#9733;</span>
                                                         <span class="star active" data-value="4" style="font-size: 18px;">&#9733;</span>
                                                        <span class="star " data-value="5" style="font-size: 18px;">&#9733;</span>
-                                                    <?php elseif(floor($rating->avg)==5): ?>
+                                                    @elseif(floor($rating->avg)==5)
                                                         <span class="star active" data-value="1" style="font-size: 18px;">&#9733;</span>
                                                         <span class="star active" data-value="2" style="font-size: 18px;">&#9733;</span>
                                                         <span class="star active" data-value="3" style="font-size: 18px;">&#9733;</span>
                                                         <span class="star active" data-value="4" style="font-size: 18px;">&#9733;</span>
                                                         <span class="star active" data-value="5" style="font-size: 18px;">&#9733;</span>
-                                                    <?php endif; ?>
+                                                    @endif
 
-                                                <?php if($completed == 1): ?>
-                                                <?php if($rating->review==""): ?>
-                                                <div class="btn btn-success" onclick="reviewPop('<?php echo e($inst->instructor_id); ?>')" > Feedback </div>
-                                                <?php endif; ?>
+                                                @if($completed == 1)
+                                                @if($rating->review=="")
+                                                <div class="btn btn-success" onclick="reviewPop('{{ $inst->instructor_id }}')" > Feedback </div>
+                                                @endif
 
-                                                <?php endif; ?>
+                                                @endif
 
                                             </td>
 
                                             <td>
 
-                                                <a data-instructor="<?php echo e($inst->id); ?>" href="javascript:void(0)" type="button" data-credit="<?php echo e($totalPurchase); ?>" class="btn btn-warning book-inst"> <?php echo e(in_array($inst->id, $UpcomingAppointmentsId)  ? 'BOOK MORE' : 'BOOK NOW'); ?> </a>
+                                                <a data-instructor="{{ $inst->id }}" href="javascript:void(0)" type="button" data-credit="{{$totalPurchase}}" class="btn btn-warning book-inst"> {{ in_array($inst->id, $UpcomingAppointmentsId)  ? 'BOOK MORE' : 'BOOK NOW'}} </a>
 
                                             </td>
 
                                         </tr>
 
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    @endforeach
 
                                     </tbody>
 
@@ -953,23 +633,23 @@
                     <div class="card-body">
                         <h4 class="card-title">Purchase & Booking</h4>
                         <h4 style="font-size: 14px;">Purchases</h4>
-                        <p><?php echo e($originalPurchase); ?> lesson hr</p>
+                        <p>{{$originalPurchase}} lesson hr</p>
                         <h4 style="font-size: 14px;">Booked</h4>
-                        <p><?php echo e($totalBooked); ?> lesson hr</p>
+                        <p>{{$totalBooked}} lesson hr</p>
                         <h4 style="font-size: 14px;">Completed</h4>
-                        <p><?php echo e($totalComplete); ?> lesson hr</p>
+                        <p>{{$totalComplete}} lesson hr</p>
                         <h4 style="font-size: 14px;">Available booking credit</h4>
-                        <p><?php echo e($totalPurchase-$totalComplete); ?> lesson hr</p>
+                        <p>{{$totalPurchase-$totalComplete}} lesson hr</p>
                     </div>
-                    <?php if($originalPurchase): ?>
+                    @if($originalPurchase)
                     <div>
-                        <a class="btn btn-success tiny small-width-100px" href="<?php echo e(route('buy_more_credit')); ?>" style="border-radius: 5px;    border-radius: 5px;
+                        <a class="btn btn-success tiny small-width-100px" href="{{ route('buy_more_credit') }}" style="border-radius: 5px;    border-radius: 5px;
     width: 80%;
     margin-left: 28px;
     margin-right: 28px;
     margin-bottom: 18px;">Buy More</a>
                     </div>
-                    <?php endif; ?>
+                    @endif
                 </div>
             </div>
 
@@ -983,7 +663,7 @@
 
                     <div class="card-body p-b-0">
 
-                        <?php if(isset($UpcomingAppointment->avatar)): ?>
+                        @if(isset($UpcomingAppointment->avatar))
 
                             <?php
                                 $s = date('Y-m-d H:i:s');
@@ -1009,11 +689,11 @@
                                }
 
                                  ?>
-                                <h4 class="card-title" style="font-weight: 700;">Your lesson <?php echo e($days); ?><!-- <?php echo e(\Carbon\Carbon::parse($UpcomingAppointment->schedule_date)->format('j F Y')); ?> --></h4>
+                                <h4 class="card-title" style="font-weight: 700;">Your lesson {{$days}}<!-- {{\Carbon\Carbon::parse($UpcomingAppointment->schedule_date)->format('j F Y')}} --></h4>
 
                                 <hr>
 
-                            <div class="row <?php if($UpcomingAppointment->time_slot == ''): ?> bg-danger text-white <?php endif; ?>" <?php if($UpcomingAppointment->time_slot == ''): ?> data-toggle="tooltip" data-title="Instructor can't approve a lesson if time is missed, please add schedule time" <?php endif; ?>>
+                            <div class="row @if($UpcomingAppointment->time_slot == '') bg-danger text-white @endif" @if($UpcomingAppointment->time_slot == '') data-toggle="tooltip" data-title="Instructor can't approve a lesson if time is missed, please add schedule time" @endif>
 
                                 <div class="col-md-6">
 
@@ -1023,31 +703,31 @@
 
                                         <div class="m-r-10">
 
-                                            <?php if( $UpcomingAppointment->avatar == ''): ?>
+                                            @if( $UpcomingAppointment->avatar == '')
 
-                                                <?php if($UpcomingAppointment->gender == 'male'): ?>
+                                                @if($UpcomingAppointment->gender == 'male')
 
-                                                <img src="<?php echo e(url('assets/images/users/default.png')); ?>" alt="user" class="img-circle" width="60">
+                                                <img src="{{ url('assets/images/users/default.png') }}" alt="user" class="img-circle" width="60">
 
-                                                <?php else: ?>
+                                                @else
 
-                                                <img src="<?php echo e(url('assets/images/users/default-female.png')); ?>" alt="user" class="img-circle" width="60">
+                                                <img src="{{ url('assets/images/users/default-female.png') }}" alt="user" class="img-circle" width="60">
 
-                                                <?php endif; ?>
+                                                @endif
 
-                                            <?php else: ?>
+                                            @else
 
-                                                <img src="<?php echo e(url('assets/images/users/'.$UpcomingAppointment->avatar)); ?>" alt="user" class="img-circle" width="60">
+                                                <img src="{{ url('assets/images/users/'.$UpcomingAppointment->avatar) }}" alt="user" class="img-circle" width="60">
 
-                                            <?php endif; ?>
+                                            @endif
 
                                         </div>
 
                                         <div>
 
-                                            <h3 class="m-b-0"><?php echo e(ucwords($UpcomingAppointment->name .' '. $UpcomingAppointment->lname)); ?></h3>
+                                            <h3 class="m-b-0">{{ ucwords($UpcomingAppointment->name .' '. $UpcomingAppointment->lname) }}</h3>
 
-                                            <span> <i class="fa fa-phone"></i> <a href="tel:<?php echo e($UpcomingAppointment->phone); ?>"><?php echo e($UpcomingAppointment->phone); ?></a> </span>
+                                            <span> <i class="fa fa-phone"></i> <a href="tel:{{$UpcomingAppointment->phone}}">{{$UpcomingAppointment->phone}}</a> </span>
 
                                         </div>
 
@@ -1082,7 +762,7 @@
                                   ?>
 
 
-                                            <span style="font-weight: 600; font-size: 18px;"><?php echo e($title); ?><?php echo e($UpcomingAppointment->lesson_hour > 1 ? "s" : ""); ?></span>
+                                            <span style="font-weight: 600; font-size: 18px;">{{$title}}{{ $UpcomingAppointment->lesson_hour > 1 ? "s" : "" }}</span>
 
                                             <br>
 
@@ -1104,13 +784,13 @@
 
                                         <span style="font-weight: 600; line-height: 35px;"><?php echo date('D, d F, Y', strtotime($UpcomingAppointment->schedule_date));?> <br>
 
-                                        Pickup time: <?php echo e($pickuptime); ?><br>Start time: <?php echo e($startT); ?></span><br> <?php
+                                        Pickup time: {{$pickuptime}}<br>Start time: {{$startT}}</span><br> <?php
 
                                     }
 
                                     else{?>
 
-                                        <span style="font-weight: 600; line-height: 35px;"><?php echo date('D, d F, Y', strtotime($UpcomingAppointment->schedule_date)); ?> &emsp; <?php echo e($UpcomingAppointment->time_slot); ?></span><br> <?php
+                                        <span style="font-weight: 600; line-height: 35px;"><?php echo date('D, d F, Y', strtotime($UpcomingAppointment->schedule_date)); ?> &emsp; {{$UpcomingAppointment->time_slot}}</span><br> <?php
 
                                     } ?>
 
@@ -1148,13 +828,13 @@
 
 
 
-                                    <?php if(isset($address)): ?>
+                                    @if(isset($address))
 
-                                    <span style="font-weight: 600; line-height: 35px;"><?php echo e($address); ?></span>
+                                    <span style="font-weight: 600; line-height: 35px;">{{$address}}</span>
 
-                                    <?php endif; ?>
+                                    @endif
 
-                                    <?php if($UpcomingAppointment->status!='cancelled'): ?>
+                                    @if($UpcomingAppointment->status!='cancelled')
                                         <?php
                                         $startDateUp= date("Y-m-d H:i:s",strtotime($UpcomingAppointment->start_date));
                                         $sixHourTimeUp = date("Y-m-d H:i:s", strtotime($startDateUp . " -6 hours"));
@@ -1162,57 +842,57 @@
                                         $today_time = date("Y-m-d H:i:s");
                                         ?>
                                         <div style="margin-bottom: 20px">
-                                            <?php if(strtotime($today_time)<=strtotime($twelveHourUp)): ?>
-                                                <?php if($UpcomingAppointment->status=='confirmed'): ?>
-                                                    <?php if(strtotime($today_time)<=strtotime($twelveHourUp)): ?>
+                                            @if(strtotime($today_time)<=strtotime($twelveHourUp))
+                                                @if($UpcomingAppointment->status=='confirmed')
+                                                    @if(strtotime($today_time)<=strtotime($twelveHourUp))
                                                         <a data-toggle="tooltip" data-title="Cancel booking" href="javascript:;" onclick="AppointmentComplete(this)" data-appointment-id="<?=$UpcomingAppointment->id?>" data-instructor-id="<?=$UpcomingAppointment->instructor_id?>"  class="btn btn-danger pull-right" style="margin-bottom: 20px;border-radius: 8px;"><i class="fa fa-times"></i> Cancel</a>
-                                                    <?php endif; ?>
-                                                    <?php if(strtotime($today_time)<=strtotime($sixHourTimeUp)): ?>
-                                                        <a  href="javascript:;" onclick="ShowTimeSlots(this)" data-type="<?php echo e($UpcomingAppointment->type); ?>" data-id="<?=$UpcomingAppointment->id?>" data-search-id="<?=$UpcomingAppointment->search_id?>" data-instructor-id="<?=$UpcomingAppointment->instructor_id?>" data-start-date="<?=$UpcomingAppointment->schedule_date?>" class="pull-right btn btn-success" style="margin-bottom: 20px;margin-right: 10px;border-radius: 8px;"><i class="fa fa-calendar"></i> Reschedule</a>
-                                                    <?php endif; ?>
-                                                <?php elseif($UpcomingAppointment->status=='cancelled_payment_wave'): ?>
+                                                    @endif
+                                                    @if(strtotime($today_time)<=strtotime($sixHourTimeUp))
+                                                        <a  href="javascript:;" onclick="ShowTimeSlots(this)" data-type="{{$UpcomingAppointment->type}}" data-id="<?=$UpcomingAppointment->id?>" data-search-id="<?=$UpcomingAppointment->search_id?>" data-instructor-id="<?=$UpcomingAppointment->instructor_id?>" data-start-date="<?=$UpcomingAppointment->schedule_date?>" class="pull-right btn btn-success" style="margin-bottom: 20px;margin-right: 10px;border-radius: 8px;"><i class="fa fa-calendar"></i> Reschedule</a>
+                                                    @endif
+                                                @elseif($UpcomingAppointment->status=='cancelled_payment_wave')
                                                     <div>
                                                         <span style="background: #8080803b; padding: 4px; font-weight: 500;padding-right: 12px;padding-left: 12px;border-radius: 10px;">Cancelled & Payment Wave</span>
                                                     </div>
-                                                <?php elseif($UpcomingAppointment->status=='cancelled'): ?>
+                                                @elseif($UpcomingAppointment->status=='cancelled')
                                                     <div>
                                                         <span style="background: #8080803b; padding: 4px; font-weight: 500;padding-right: 12px;padding-left: 12px;border-radius: 10px;">Cancelled by Learner</span>
                                                     </div>
-                                                <?php elseif($UpcomingAppointment->status=='no_charge'): ?>
+                                                @elseif($UpcomingAppointment->status=='no_charge')
                                                     <div>
                                                         <span style="background: #8080803b; padding: 4px; font-weight: 500;padding-right: 12px;padding-left: 12px;border-radius: 10px;">No charge added By Instructor</span>
                                                     </div>
-                                                <?php elseif($UpcomingAppointment->status=='completed'): ?>
+                                                @elseif($UpcomingAppointment->status=='completed')
                                                     <div>
                                                         <span style="background: #22c6ab; padding: 4px;font-weight: 500;padding-right: 12px; padding-left: 12px;border-radius: 10px;color: white;">Payment Authorized (Completed)</span>
                                                     </div>
-                                                <?php endif; ?>
-                                            <?php else: ?>
-                                                <?php if(strtotime($today_time)>=strtotime($twelveHourUp)): ?>
+                                                @endif
+                                            @else
+                                                @if(strtotime($today_time)>=strtotime($twelveHourUp))
                                                     <a data-toggle="tooltip" data-title="Cancel booking" href="javascript:;" onclick="CanNotCancel(this)"  class="btn btn-danger pull-right" style="margin-bottom: 20px;border-radius: 8px;"><i class="fa fa-times"></i> Cancel</a>
-                                                <?php endif; ?>
-                                                <?php if(strtotime($today_time)>=strtotime($sixHourTimeUp)): ?>
+                                                @endif
+                                                @if(strtotime($today_time)>=strtotime($sixHourTimeUp))
                                                     <a  href="javascript:;" onclick="CanNotResecudle(this)"  class="pull-right btn btn-success" style="margin-bottom: 20px;margin-right: 10px;border-radius: 8px;"><i class="fa fa-calendar"></i> Reschedule</a>
-                                                <?php endif; ?>
-                                            <?php endif; ?>
+                                                @endif
+                                            @endif
                                         </div>
-                                    <?php elseif($UpcomingAppointment->status=='cancelled'): ?>
+                                    @elseif($UpcomingAppointment->status=='cancelled')
                                         <div style="margin-bottom: 28px">
                                             <span style="background: #8080803b; padding: 4px; font-weight: 500;padding-right: 12px;padding-left: 12px;border-radius: 10px;">Cancelled by Learner</span>
                                         </div>
-                                    <?php endif; ?>
+                                    @endif
 
                                 </div>
 
                             </div>
 
-                        <?php else: ?>
+                        @else
 
                             <h4 class="card-title">Upcoming lesson not found!</h4>
 
                             <hr>
 
-                        <?php endif; ?>
+                        @endif
 
                     </div>
 
@@ -1229,9 +909,9 @@
 
 
 
-                        <?php if($appointments->isNotEmpty()): ?>
+                        @if($appointments->isNotEmpty())
 
-                            <?php $__currentLoopData = $appointments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $appointment): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            @foreach($appointments as $appointment)
 
                                <?php
                                 $s = date('Y-m-d H:i:s');
@@ -1257,7 +937,7 @@
                                }
 
                                  ?>
-                                <h4 class="card-title">Your lesson <?php echo e($days); ?><!-- <?php echo e(\Carbon\Carbon::parse($appointment->schedule_date)->format('j F Y')); ?> --></h4>
+                                <h4 class="card-title">Your lesson {{$days}}<!-- {{\Carbon\Carbon::parse($appointment->schedule_date)->format('j F Y')}} --></h4>
 
                                 <hr>
 
@@ -1271,31 +951,31 @@
 
                                             <div class="m-r-10">
 
-                                                 <?php if( $appointment->avatar == ''): ?>
+                                                 @if( $appointment->avatar == '')
 
-                                                    <?php if($appointment->gender == 'male'): ?>
+                                                    @if($appointment->gender == 'male')
 
-                                                    <img src="<?php echo e(url('assets/images/users/default.png')); ?>" alt="user" class="img-circle" width="60">
+                                                    <img src="{{ url('assets/images/users/default.png') }}" alt="user" class="img-circle" width="60">
 
-                                                    <?php else: ?>
+                                                    @else
 
-                                                    <img src="<?php echo e(url('assets/images/users/default-female.png')); ?>" alt="user" class="img-circle" width="60">
+                                                    <img src="{{ url('assets/images/users/default-female.png') }}" alt="user" class="img-circle" width="60">
 
-                                                    <?php endif; ?>
+                                                    @endif
 
-                                                <?php else: ?>
+                                                @else
 
-                                                <img src="<?php echo e(url('assets/images/users/'.$appointment->avatar)); ?>" alt="user" class="img-circle" width="60">
+                                                <img src="{{ url('assets/images/users/'.$appointment->avatar) }}" alt="user" class="img-circle" width="60">
 
-                                                <?php endif; ?>
+                                                @endif
 
                                             </div>
 
                                             <div>
 
-                                                <h3 class="m-b-0"><?php echo e($appointment->name); ?> <?php echo e($appointment->lname); ?></h3>
+                                                <h3 class="m-b-0">{{$appointment->name}} {{$appointment->lname}}</h3>
 
-                                                <span> <i class="fa fa-phone"></i> <a href="tel:<?php echo e($appointment->phone); ?>"><?php echo e($appointment->phone); ?></a> </span>
+                                                <span> <i class="fa fa-phone"></i> <a href="tel:{{$appointment->phone}}">{{$appointment->phone}}</a> </span>
 
                                             </div>
 
@@ -1365,8 +1045,8 @@
                                 }
                                          ?>
 
-                                            <!-- <span style="font-weight: 600; font-size: 18px;"><?php echo e($appointment->apptype == "test" ? "Auto Driving Test" : "Auto Lesson - ".$appointment->lesson_hour." hour"); ?><?php echo e($appointment->lesson_hour > 1 ? "s" : ""); ?></span><br> -->
-                                            <span style="font-weight: 600; font-size: 18px;"><?php echo e($title); ?><?php echo e($appointment->lesson_hour > 1 ? "s" : ""); ?></span>
+                                            <!-- <span style="font-weight: 600; font-size: 18px;">{{ $appointment->apptype == "test" ? "Auto Driving Test" : "Auto Lesson - ".$appointment->lesson_hour." hour" }}{{ $appointment->lesson_hour > 1 ? "s" : "" }}</span><br> -->
+                                            <span style="font-weight: 600; font-size: 18px;">{{$title}}{{ $appointment->lesson_hour > 1 ? "s" : "" }}</span>
                                             <br>
 
 
@@ -1384,28 +1064,28 @@
 
                                                 ?>
 
-                                                <span style="font-weight: 600; line-height: 35px;"><?php echo date('D, d F, Y', strtotime($appointment->schedule_date)); ?> <br>Pickup time: <?php echo e($pickuptime); ?><br>Start time: <?php echo e($startT); ?></span><br> <?php
+                                                <span style="font-weight: 600; line-height: 35px;"><?php echo date('D, d F, Y', strtotime($appointment->schedule_date)); ?> <br>Pickup time: {{$pickuptime}}<br>Start time: {{$startT}}</span><br> <?php
 
                                             }
 
                                             else{ ?>
 
-                                                <span style="font-weight: 600; line-height: 35px;"><?php echo date('D, d F, Y', strtotime($appointment->schedule_date)); ?>&emsp;<?php echo e($appointment->time_slot); ?></span><br> <?php
+                                                <span style="font-weight: 600; line-height: 35px;"><?php echo date('D, d F, Y', strtotime($appointment->schedule_date)); ?>&emsp;{{$appointment->time_slot}}</span><br> <?php
 
                                             } ?>
 
 
 
-                                            <?php if(isset($address)): ?>
+                                            @if(isset($address))
 
-                                            <span style="font-weight: 600; line-height: 35px;"><?php echo e($address); ?></span>
+                                            <span style="font-weight: 600; line-height: 35px;">{{$address}}</span>
 
-                                            <?php endif; ?>
+                                            @endif
 
                                         </p>
 
 
-                                            <?php if($appointment->status!='cancelled'): ?>
+                                            @if($appointment->status!='cancelled')
                                                 <?php
                                                 $startDate= date("Y-m-d H:i:s",strtotime($appointment->start_date));
                                                 $sixHourTime = date("Y-m-d H:i:s", strtotime($startDate . " -6 hours"));
@@ -1413,54 +1093,54 @@
                                                 $today_time = date("Y-m-d H:i:s");
                                                 ?>
                                                 <div>
-                                                    <?php if(strtotime($today_time)<=strtotime($twelveHour)): ?>
-                                                        <?php if($appointment->status=='confirmed'): ?>
-                                                            <?php if(strtotime($today_time)<=strtotime($twelveHour)): ?>
+                                                    @if(strtotime($today_time)<=strtotime($twelveHour))
+                                                        @if($appointment->status=='confirmed')
+                                                            @if(strtotime($today_time)<=strtotime($twelveHour))
                                                                 <a data-toggle="tooltip" data-title="Cancel booking" href="javascript:;" onclick="AppointmentComplete(this)" data-appointment-id="<?=$appointment->id?>" data-instructor-id="<?=$appointment->instructor_id?>"  class="btn btn-danger pull-right" style="margin-bottom: 20px;border-radius: 8px;"><i class="fa fa-times"></i> Cancel</a>
-                                                            <?php endif; ?>
-                                                            <?php if(strtotime($today_time)<=strtotime($sixHourTime)): ?>
-                                                                <a  href="javascript:;" onclick="ShowTimeSlots(this)" data-type="<?php echo e($appointment->type); ?>" data-id="<?=$appointment->id?>" data-search-id="<?=$appointment->search_id?>" data-instructor-id="<?=$appointment->instructor_id?>" data-start-date="<?=$appointment->schedule_date?>" class="pull-right btn btn-success" style="margin-bottom: 20px;margin-right: 10px;border-radius: 8px;"><i class="fa fa-calendar"></i> Reschedule</a>
-                                                            <?php endif; ?>
-                                                        <?php elseif($appointment->status=='cancelled_payment_wave'): ?>
+                                                            @endif
+                                                            @if(strtotime($today_time)<=strtotime($sixHourTime))
+                                                                <a  href="javascript:;" onclick="ShowTimeSlots(this)" data-type="{{$appointment->type}}" data-id="<?=$appointment->id?>" data-search-id="<?=$appointment->search_id?>" data-instructor-id="<?=$appointment->instructor_id?>" data-start-date="<?=$appointment->schedule_date?>" class="pull-right btn btn-success" style="margin-bottom: 20px;margin-right: 10px;border-radius: 8px;"><i class="fa fa-calendar"></i> Reschedule</a>
+                                                            @endif
+                                                        @elseif($appointment->status=='cancelled_payment_wave')
                                                             <div>
                                                                 <span style="background: #8080803b; padding: 4px; font-weight: 500;padding-right: 12px;padding-left: 12px;border-radius: 10px;">Cancelled & Payment Wave</span>
                                                             </div>
-                                                        <?php elseif($appointment->status=='cancelled'): ?>
+                                                        @elseif($appointment->status=='cancelled')
                                                             <div>
                                                                 <span style="background: #8080803b; padding: 4px; font-weight: 500;padding-right: 12px;padding-left: 12px;border-radius: 10px;">Cancelled by Learner</span>
                                                             </div>
-                                                        <?php elseif($appointment->status=='no_charge'): ?>
+                                                        @elseif($appointment->status=='no_charge')
                                                             <div>
                                                                 <span style="background: #8080803b; padding: 4px; font-weight: 500;padding-right: 12px;padding-left: 12px;border-radius: 10px;">No charge added By Instructor</span>
                                                             </div>
-                                                        <?php elseif($appointment->status=='completed'): ?>
+                                                        @elseif($appointment->status=='completed')
                                                             <div>
                                                                 <span style="background: #22c6ab; padding: 4px;font-weight: 500;padding-right: 12px; padding-left: 12px;border-radius: 10px;color: white;">Payment Authorized (Completed)</span>
                                                             </div>
-                                                        <?php endif; ?>
-                                                    <?php else: ?>
+                                                        @endif
+                                                    @else
 
-                                                        <?php if(strtotime($today_time)>=strtotime($twelveHour)): ?>
+                                                        @if(strtotime($today_time)>=strtotime($twelveHour))
                                                             <a data-toggle="tooltip" data-title="Cancel booking" href="javascript:;" onclick="CanNotCancel(this)"  class="btn btn-danger pull-right" style="margin-bottom: 20px;border-radius: 8px;"><i class="fa fa-times"></i> Cancel</a>
-                                                        <?php endif; ?>
-                                                        <?php if(strtotime($today_time)>=strtotime($sixHourTime)): ?>
+                                                        @endif
+                                                        @if(strtotime($today_time)>=strtotime($sixHourTime))
                                                             <a  href="javascript:;" onclick="CanNotResecudle(this)"  class="pull-right btn btn-success" style="margin-bottom: 20px;margin-right: 10px;border-radius: 8px;"><i class="fa fa-calendar"></i> Reschedule</a>
-                                                        <?php endif; ?>
-                                                    <?php endif; ?>
+                                                        @endif
+                                                    @endif
                                                 </div>
-                                            <?php elseif($appointment->status=='cancelled'): ?>
+                                            @elseif($appointment->status=='cancelled')
                                                 <div style="margin-bottom: 28px">
                                                     <span style="background: #8080803b; padding: 4px; font-weight: 500;padding-right: 12px;padding-left: 12px;border-radius: 10px;">Cancelled by Learner</span>
                                                 </div>
-                                            <?php endif; ?>
+                                            @endif
 
 
                                     </div>
 
                                 </div>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            @endforeach
 
-                        <?php endif; ?>
+                        @endif
                     </div>
 
                 </div>
@@ -1485,15 +1165,15 @@
 
                                 <div class="w-100" >
 
-                                    <?php if($BookingHistory->isNotEmpty()): ?>
+                                    @if($BookingHistory->isNotEmpty())
 
-                                        <?php $__currentLoopData = $BookingHistory; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $appointment): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        @foreach($BookingHistory as $appointment)
 
 
 
                                         <hr>
 
-                                        <div style="    margin-bottom: 20px;" class="row <?php if($appointment->time_slot == ''): ?> bg-danger text-white <?php endif; ?>" <?php if($appointment->time_slot == ''): ?> data-toggle="tooltip" data-title="Instructor can't approve a lesson if time is missed, please add schedule time" <?php endif; ?>>
+                                        <div style="    margin-bottom: 20px;" class="row @if($appointment->time_slot == '') bg-danger text-white @endif" @if($appointment->time_slot == '') data-toggle="tooltip" data-title="Instructor can't approve a lesson if time is missed, please add schedule time" @endif>
 
                                             <div class="col-md-6">
 
@@ -1503,23 +1183,23 @@
 
                                                     <div class="m-r-10">
 
-                                                        <?php if( $appointment->avatar == ''): ?>
+                                                        @if( $appointment->avatar == '')
 
-                                                            <img src="<?php echo e(url('assets/images/users/default.png')); ?>" alt="user" class="img-circle" width="60">
+                                                            <img src="{{ url('assets/images/users/default.png') }}" alt="user" class="img-circle" width="60">
 
-                                                        <?php else: ?>
+                                                        @else
 
-                                                            <img src="<?php echo e(url('assets/images/users/'.$appointment->avatar)); ?>" alt="user" class="img-circle" width="60">
+                                                            <img src="{{ url('assets/images/users/'.$appointment->avatar) }}" alt="user" class="img-circle" width="60">
 
-                                                        <?php endif; ?>
+                                                        @endif
 
                                                     </div>
 
                                                     <div>
 
-                                                        <h3 class="m-b-0"><?php echo e(ucwords($appointment->name .' '. $appointment->lname)); ?></h3>
+                                                        <h3 class="m-b-0">{{ ucwords($appointment->name .' '. $appointment->lname) }}</h3>
 
-                                                        <span> <i class="fa fa-phone"></i> <a href="tel:<?php echo e($appointment->phone); ?>"><?php echo e($appointment->phone); ?></a> </span>
+                                                        <span> <i class="fa fa-phone"></i> <a href="tel:{{$appointment->phone}}">{{$appointment->phone}}</a> </span>
 
                                                     </div>
 
@@ -1554,7 +1234,7 @@
                                   ?>
 
 
-                                            <span style="font-weight: 600; font-size: 18px;"><?php echo e($title); ?><?php echo e($appointment->lesson_hour > 1 ? "s" : ""); ?></span>
+                                            <span style="font-weight: 600; font-size: 18px;">{{$title}}{{ $appointment->lesson_hour > 1 ? "s" : "" }}</span>
                                                         <br>
 
                                                 <?php //echo $appointment->apptype;
@@ -1573,13 +1253,13 @@
 
                                                     ?>
 
-                                                    <span style="font-weight: 600; line-height: 35px;"><?php echo date('D, d F, Y', strtotime($appointment->schedule_date)); ?> <br>Pickup time: <?php echo e($pickuptime); ?><br>Start time: <?php echo e($startT); ?></span><br> <?php
+                                                    <span style="font-weight: 600; line-height: 35px;"><?php echo date('D, d F, Y', strtotime($appointment->schedule_date)); ?> <br>Pickup time: {{$pickuptime}}<br>Start time: {{$startT}}</span><br> <?php
 
                                                 }
 
                                                 else{?>
 
-                                                    <span style="font-weight: 600; line-height: 35px;"><?php echo date('D, d F, Y', strtotime($appointment->schedule_date)); ?> &emsp; <?php echo e($appointment->time_slot); ?></span><br> <?php
+                                                    <span style="font-weight: 600; line-height: 35px;"><?php echo date('D, d F, Y', strtotime($appointment->schedule_date)); ?> &emsp; {{ $appointment->time_slot}}</span><br> <?php
 
                                                 } ?>
 
@@ -1619,14 +1299,14 @@
 
 
 
-                                                <?php if(isset($address)): ?>
+                                                @if(isset($address))
 
-                                                <span style="font-weight: 600; line-height: 35px;"><?php echo e($address); ?></span>
+                                                <span style="font-weight: 600; line-height: 35px;">{{$address}}</span>
 
-                                                <?php endif; ?>
+                                                @endif
 
 
-                                                <?php if($appointment->status!='cancelled'): ?>
+                                                @if($appointment->status!='cancelled')
                                                     <?php
                                                     $startDateHistory= date("Y-m-d H:i:s",strtotime($appointment->start_date));
                                                     $sixHourTime3 = date("Y-m-d H:i:s", strtotime($startDateHistory . " -6 hours"));
@@ -1634,46 +1314,46 @@
                                                     $today_time3 = date("Y-m-d H:i:s");
                                                     ?>
                                                     <div>
-                                                        <?php if(strtotime($today_time3)<=strtotime($twelveHour3)): ?>
-                                                            <?php if($appointment->status=='confirmed'): ?>
-                                                                <?php if(strtotime($today_time3)<=strtotime($twelveHour3)): ?>
+                                                        @if(strtotime($today_time3)<=strtotime($twelveHour3))
+                                                            @if($appointment->status=='confirmed')
+                                                                @if(strtotime($today_time3)<=strtotime($twelveHour3))
                                                                     <a data-toggle="tooltip" data-title="Cancel booking" href="javascript:;" onclick="AppointmentComplete(this)" data-appointment-id="<?=$appointment->id?>" data-instructor-id="<?=$appointment->instructor_id?>"  class="btn btn-danger pull-right" style="margin-bottom: 20px;border-radius: 8px;"><i class="fa fa-times"></i> Cancel</a>
-                                                                <?php endif; ?>
-                                                                <?php if(strtotime($today_time3)<=strtotime($sixHourTime3)): ?>
-                                                                    <a  href="javascript:;" onclick="ShowTimeSlots(this)" data-type="<?php echo e($appointment->type); ?>" data-id="<?=$appointment->id?>" data-search-id="<?=$appointment->search_id?>" data-instructor-id="<?=$appointment->instructor_id?>" data-start-date="<?=$appointment->schedule_date?>" class="pull-right btn btn-success" style="margin-bottom: 20px;margin-right: 10px;border-radius: 8px;"><i class="fa fa-calendar"></i> Reschedule</a>
-                                                                <?php endif; ?>
-                                                            <?php elseif($appointment->status=='cancelled_payment_wave'): ?>
+                                                                @endif
+                                                                @if(strtotime($today_time3)<=strtotime($sixHourTime3))
+                                                                    <a  href="javascript:;" onclick="ShowTimeSlots(this)" data-type="{{$appointment->type}}" data-id="<?=$appointment->id?>" data-search-id="<?=$appointment->search_id?>" data-instructor-id="<?=$appointment->instructor_id?>" data-start-date="<?=$appointment->schedule_date?>" class="pull-right btn btn-success" style="margin-bottom: 20px;margin-right: 10px;border-radius: 8px;"><i class="fa fa-calendar"></i> Reschedule</a>
+                                                                @endif
+                                                            @elseif($appointment->status=='cancelled_payment_wave')
                                                                 <div>
                                                                     <span style="background: #8080803b; padding: 4px; font-weight: 500;padding-right: 12px;padding-left: 12px;border-radius: 10px;">Cancelled & Payment Wave</span>
                                                                 </div>
-                                                            <?php elseif($appointment->status=='cancelled'): ?>
+                                                            @elseif($appointment->status=='cancelled')
                                                                 <div>
                                                                     <span style="background: #8080803b; padding: 4px; font-weight: 500;padding-right: 12px;padding-left: 12px;border-radius: 10px;">Cancelled by Learner</span>
                                                                 </div>
-                                                            <?php elseif($appointment->status=='no_charge'): ?>
+                                                            @elseif($appointment->status=='no_charge')
                                                                 <div>
                                                                     <span style="background: #8080803b; padding: 4px; font-weight: 500;padding-right: 12px;padding-left: 12px;border-radius: 10px;">No charge added By Instructor</span>
                                                                 </div>
-                                                            <?php elseif($appointment->status=='completed'): ?>
+                                                            @elseif($appointment->status=='completed')
                                                                 <div>
                                                                     <span style="background: #22c6ab; padding: 4px;font-weight: 500;padding-right: 12px; padding-left: 12px;border-radius: 10px;color: white;">Payment Authorized (Completed)</span>
                                                                 </div>
-                                                            <?php endif; ?>
-                                                        <?php else: ?>
-                                                            <?php if(strtotime($today_time3)>=strtotime($twelveHour3)): ?>
+                                                            @endif
+                                                        @else
+                                                            @if(strtotime($today_time3)>=strtotime($twelveHour3))
                                                                 <a data-toggle="tooltip" data-title="Cancel booking" href="javascript:;" onclick="CanNotCancel(this)"  class="btn btn-danger pull-right" style="margin-bottom: 20px;border-radius: 8px;"><i class="fa fa-times"></i> Cancel</a>
-                                                            <?php endif; ?>
-                                                            <?php if(strtotime($today_time)>=strtotime($sixHourTime3)): ?>
+                                                            @endif
+                                                            @if(strtotime($today_time)>=strtotime($sixHourTime3))
                                                                 <a  href="javascript:;" onclick="CanNotResecudle(this)"  class="pull-right btn btn-success" style="margin-bottom: 20px;margin-right: 10px;border-radius: 8px;"><i class="fa fa-calendar"></i> Reschedule</a>
-                                                            <?php endif; ?>
-                                                        <?php endif; ?>
+                                                            @endif
+                                                        @endif
                                                     </div>
 
-                                                <?php elseif($appointment->status=='cancelled'): ?>
+                                                @elseif($appointment->status=='cancelled')
                                                     <div style="margin-bottom: 28px">
                                                         <span style="background: #8080803b; padding: 4px; font-weight: 500;padding-right: 12px;padding-left: 12px;border-radius: 10px;">Cancelled by Learner</span>
                                                     </div>
-                                                <?php endif; ?>
+                                                @endif
 
                                             </div>
 
@@ -1683,9 +1363,9 @@
 
 
 
-                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                         @endforeach
 
-                                    <?php else: ?>
+                                    @else
 
                                         <tr>
 
@@ -1693,7 +1373,7 @@
 
                                         </tr>
 
-                                    <?php endif; ?>
+                                    @endif
 
 
 
@@ -1896,13 +1576,13 @@
     </div>
 
     <div class="modal fade" id="TimeSlotModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-md" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <form id="book_time">
                 <input type="hidden" name="schedule_date">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel" style="text-align: center;width: 100%">Booking Update</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="width: 50px">
+                        <h5 class="modal-title" id="exampleModalLabel">Update Booking</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -1912,80 +1592,50 @@
                         <input type="hidden" class="form-control" name="id" id="appt_id">
                         <input type="hidden" class="form-control" name="instructor_id" id="instructor_id">
                         <input type="hidden" class="form-control" name="type" id="typePackage">
-                        <section class="book_lesson add_cart_sec">
-                            <div class="add_cart_wrapper">
-                                <div class="book_lesson_wrapper">
-                                    <!-- Choose driving-lesson time-date and hours-->
-                                    <div class="driving_lesson mb-4">
-                                        <div class="dl_body">
-                                            <div class="dl_duration">
-                                                <h4 class="text-center">Duration</h4>
-                                                <div class="dl_hours_duration">
-                                                    <form class="row" action="">
-                                                        <div class="d-flex justify-content-center">
-                                                            <div class="col-6 d-flex justify-content-end">
-                                                                <div class="form-check checked-hour" id="one_hour_div">
-                                                                    <input  class="form-check-input" id="one_hour" type="checkbox">
-                                                                    <label class="form-check-label" for="1">
-                                                                        1 hour
-                                                                    </label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-6">
-                                                                <div class="form-check" id="two_hour_div">
-                                                                    <input class="form-check-input" id="two_hour" type="checkbox">
-                                                                    <label class="form-check-label" for="2">
-                                                                        2 hour
-                                                                    </label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="d-flex justify-content-center">
-                                                            <div class="col-sm-6 col-12 mt-3  d-flex justify-content-sm-end justify-content-center">
-                                                                <select class="availability_check" aria-label="Default select example">
-                                                                    <option selected>Available Dates</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="col-sm-6 col-12 mt-3 mb-sm-0 mb-2 d-flex justify-content-sm-start justify-content-center">
-                                                                <select class="availability_check" aria-label="Default select example">
-                                                                    <option selected>Available Times</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12 mt-3 text-center">
-                                                            <button class="btn btn-primary" type="submit">UPDATE</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="available_dates_time row"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Choose driving-test time-date and locatin  -->
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-4" id="TimerBlockDiv">
+                                <select name="timehour" id="timeHour" class="form-control" style="    padding: 7px;
+                                        width: 100%;
+                                        height: 41px;
+                                        border: 1px solid black;">
+                                    <option value="">Select Time Durations</option>
+                                    <option value="1">1 hour</option>
+                                    <option value="2">2 hour</option>
+                                </select>
+                                </div>
+                                <div class="col-md-4" id="lesonDivContent">
 
                                 </div>
+                                <div class="col-md-4">
+                                    <div id="show_slots"></div>
+                                </div>
                             </div>
-                        </section>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Update</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 
-<?php $__env->stopSection(); ?>
+@endsection
 
 
 
-<?php $__env->startSection('scripts'); ?>
+@section('scripts')
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/fh-3.1.4/datatables.min.js"></script>
-    <script src="<?php echo e(asset('assets/js/calendar/packages/core/main.js')); ?>"></script>
-    <script src="<?php echo e(asset('assets/js/calendar/packages/interaction/main.js')); ?>"></script>
-    <script src="<?php echo e(asset('assets/js/calendar/packages/daygrid/main.js')); ?>"></script>
-    <script src="<?php echo e(asset('assets/js/calendar/packages/moment/moment.min.js')); ?>"></script>
-    <script src="<?php echo e(asset('assets/js/calendar/packages/timegrid/main.js')); ?>"></script>
+    <script src="{{ asset('assets/js/calendar/packages/core/main.js') }}"></script>
+    <script src="{{ asset('assets/js/calendar/packages/interaction/main.js') }}"></script>
+    <script src="{{ asset('assets/js/calendar/packages/daygrid/main.js') }}"></script>
+    <script src="{{ asset('assets/js/calendar/packages/moment/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/js/calendar/packages/timegrid/main.js')}}"></script>
     <!-- This Page JS -->
 
     <script>
@@ -2019,13 +1669,13 @@
             var learnerID = "<?php echo $learner_id; ?>";
 
             if(credit>1){
-                $.post('<?php echo e(url('create-search-from-learner')); ?>',
+                $.post('{{url('create-search-from-learner')}}',
 
-                { learner_id: learnerID, '_token': '<?php echo e(@csrf_token()); ?>','credit':credit },
+                { learner_id: learnerID, '_token': '{{ @csrf_token() }}','credit':credit },
 
                 function (data) {
 
-                    window.location.href = "<?php echo e(url('/')); ?>/book-online/book/"+data.search_id+"/instructor/"+inst;
+                    window.location.href = "{{url('/')}}/book-online/book/"+data.search_id+"/instructor/"+inst;
 
                 });
             }else{
@@ -2040,7 +1690,7 @@
 
 
 
-        var hint = '<?php echo e(@$rating->total); ?> votes, average <?php echo e(floor(@$rating->avg)); ?> out of 5';
+        var hint = '{{@$rating->total}} votes, average {{ floor(@$rating->avg) }} out of 5';
 
         (function ($) {
 
@@ -2095,7 +1745,7 @@
 
                 $.ajax({
 
-                    url: "<?php echo e(route('give_review')); ?>",
+                    url: "{{ route('give_review') }}",
 
                     data: data,
 
@@ -2164,7 +1814,7 @@
 
             $('#inst_id').val(id);
 
-            $.post('<?php echo e(route('get_review')); ?>',
+            $.post('{{route('get_review')}}',
 
                 {id: id},
 
@@ -2250,7 +1900,7 @@
 
             var UserType = $(e).attr('data-user-type');
 
-            $.post('<?php echo e(route('get-appointment-detail')); ?>',
+            $.post('{{route('get-appointment-detail')}}',
 
                 {AppointmentID: AppointmentID, UserType: UserType},
 
@@ -2297,7 +1947,7 @@
                 $('select#TimerBlockDiv').hide();
                 $('div#TimerBlockDiv').hide();
                 jQuery.ajax({
-                    url: '<?php echo e(url('get_instructor_calendar2')); ?>',
+                    url: '{{ url('get_instructor_calendar2') }}',
                     type: 'POST',
                     data: {
                         id:  $('#instructor_id').val(),
@@ -2312,7 +1962,7 @@
 
         $(document).on('change','select#timeHour', function(event) {
             jQuery.ajax({
-                url: '<?php echo e(url('get_instructor_calendar2')); ?>',
+                url: '{{ url('get_instructor_calendar2') }}',
                 type: 'POST',
                 data: {
                     id:  $('#instructor_id').val(),
@@ -2327,8 +1977,8 @@
 
         $(document).on('change','select#test_location_date', function(event) {
             var start_date = this.value;
-            $.post('<?php echo e(url('get-slots1')); ?>',
-                { hour:1, start_date:start_date, instructor_id: $('#instructor_id').val(), userid:<?php echo e(auth()->user()->id); ?>, '_token': '<?php echo e(@csrf_token()); ?>' },
+            $.post('{{url('get-slots1')}}',
+                { hour:1, start_date:start_date, instructor_id: $('#instructor_id').val(), userid:{{auth()->user()->id}}, '_token': '{{ @csrf_token() }}' },
                 function (data) {
                     $("#show_slots").html('');
                     $("#show_slots").append(data.html);
@@ -2338,8 +1988,8 @@
         $(document).on('change','#lesson_date', function(event) {
             var start_date = this.value;
             if ($('select#timeHour').val()){
-                $.post('<?php echo e(url('get-slots')); ?>',
-                    { hour:$('select#timeHour').val(), start_date:start_date, instructor_id: $('#instructor_id').val(), userid:<?php echo e(auth()->user()->id); ?>, '_token': '<?php echo e(@csrf_token()); ?>' },
+                $.post('{{url('get-slots')}}',
+                    { hour:$('select#timeHour').val(), start_date:start_date, instructor_id: $('#instructor_id').val(), userid:{{auth()->user()->id}}, '_token': '{{ @csrf_token() }}' },
                     function (data) {
                         $("#show_slots").html('');
                         $("#show_slots").append(data.html);
@@ -2441,11 +2091,11 @@
                     /*time slots request*/
                     $("#show_slots").html('<center><i class="fa fa-spin fa-spinner"></i></center>');
 
-                    $.post('<?php echo e(url('get-slots')); ?>',
+                    $.post('{{url('get-slots')}}',
                         {
                             start_date: start_date,
                             instructor_id: instructor_id,
-                            '_token': '<?php echo e(@csrf_token()); ?>'
+                            '_token': '{{ @csrf_token() }}'
                         },
                         function (data) {
                             $("#show_slots").html('');
@@ -2485,8 +2135,8 @@
             $("#loading").show();
             var start_date = $(this).val();
             var instructor_id = $('#instructor_id').val();
-            $.post('<?php echo e(url('get-slots')); ?>',
-                { start_date:start_date, instructor_id: instructor_id, '_token': '<?php echo e(@csrf_token()); ?>' },
+            $.post('{{url('get-slots')}}',
+                { start_date:start_date, instructor_id: instructor_id, '_token': '{{ @csrf_token() }}' },
                 function (data) {
                     if(data.html){
                         $("#show_slots").html('');
@@ -2505,7 +2155,7 @@
             var data = new FormData(this);
 
             $.ajax({
-                url: "<?php echo e(Route('Update-book-time')); ?>",
+                url: "{{Route('Update-book-time')}}",
                 data: data,
                 contentType: false,
                 processData: false,
@@ -2551,7 +2201,7 @@
                     $("#loading").show();
                     var InstructorID = $(e).attr('data-instructor-id');
                     var AppointmentID = $(e).attr('data-appointment-id');
-                    $.post('<?php echo e(route("Change-appointment-status")); ?>',{AppointmentID:AppointmentID, InstructorID:InstructorID,status:'cancelled'},function(res){
+                    $.post('{{ route("Change-appointment-status")}}',{AppointmentID:AppointmentID, InstructorID:InstructorID,status:'cancelled'},function(res){
                         $("#loading").hide();
 
                         if(res.success==true){
@@ -2574,7 +2224,5 @@
         }
     </script>
 
-<?php $__env->stopSection(); ?>
+@endsection
 
-
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\xampp7.4.9\htdocs\firstpass\resources\views/learner/home.blade.php ENDPATH**/ ?>

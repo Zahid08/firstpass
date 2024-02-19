@@ -253,6 +253,320 @@
         .fc-row .fc-content-skeleton{padding-bottom: 0!important;}
         .fc-head{background: #ffcb00}
         h5.title .badge{ font-size: 50% }
+
+        /* -------------------------------------------------------------------------- */
+        /*                            Book Now Page Section                           */
+        /* -------------------------------------------------------------------------- */
+        .book_lesson{
+            margin:0px auto;
+        }
+        .book_lesson_wrapper{
+            max-width:510px;
+            margin:0px auto;
+        }
+        .booked_lessons_list {
+            padding: 0px 12px;
+            height: 200px;
+            overflow-y: scroll;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+        .booked-lessons_items {
+            display: flex;
+            align-items: center;
+            border: 1px solid #f4a640;
+            width: fit-content;
+            border-radius: 4px;
+            width: 100%;
+            height: 100%;
+            max-height: 110px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+        .booked-lessons_items:last-child{
+            margin-bottom: 0;
+        }
+        .lesson_info{
+            padding:15px;
+            background: #fff7ed;
+            width: 100%;
+            height: 100%;
+        }
+        .booked_lessons_list .lesson_info h4,
+        .added_to_cart_box h5{
+            font-size: 20px;
+            line-height:22px;
+            color: #17214d;
+            margin-bottom: 5px;
+        }
+        .booked_lessons_list .lesson_info p{
+            font-size: 18px;
+            line-height:22px;
+            color: #555185;
+        }
+        .delete_lesson_info{
+            display: flex;
+            height: 100%;
+        }
+        .delete_lesson_info a{
+            color:#eb5757;
+            display: flex;
+            padding:8px;
+            gap:5px;
+            align-items:center;
+            background-color:#feebd4;
+            height: 100%;
+            transition: all 0.2s ease-in-out;
+        }
+        .delete_lesson_info a:hover{
+            background-color:#f4ddc0;
+            transition: all 0.2s ease-in-out;
+        }
+        .delete_lesson_info svg{
+            fill:#eb5757;
+        }
+
+        .added_to_cart {
+            background: #ffffff;
+            border: 1px solid #d3d3d3;
+            border-radius: 5px;
+            padding: 31px;
+        }
+        .added_to_cart_box {
+            border: 1px solid #d3d3d3;
+            border-radius: 5px;
+            padding: 13px 21px;
+            height: 122px;
+        }
+        .added_to_cart_box ul li{
+            display: flex;
+            justify-content:space-between;
+            gap:15px;
+        }
+        .added_to_cart_box ul li .list_title,
+        .added_to_cart_box ul li .list_info{
+            font-size: 18px;
+            line-height: 30px;
+            color: #17214D;
+        }
+        .added_to_cart_box ul li .list_info{
+            color: #555185;
+        }
+        .lesson_test_box {
+            background: #17214d;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 150px;
+            padding: 20px 30px;
+            cursor: pointer;
+            margin:20px 0px;
+            transition: all 0.3s;
+        }
+        .lesson_test_box:hover{
+            transform:scale(1.04);
+            transition: all 0.3s;
+        }
+        .lesson_test_box h5{
+            font-size: 18px;
+            line-height: 24px;
+            color:#FFFFFF;
+            text-align: center;
+        }
+        .lesson_test_box span.lt_arrow_right {
+            width: 35px;
+            height: 35px;
+            display: inline-block;
+            background: #eda533;
+            line-height: 32px;
+            text-align: center;
+            border-radius: 100px;
+        }
+
+        .driving_lesson{
+            background: #ffffff;
+            border: 1px solid #d3d3d3;
+            border-radius: 5px;
+            position: relative;
+        }
+        .dl_header {
+            background: #e2eff1;
+            display: flex;
+            justify-content: center;
+            padding: 14px 0px;
+            border-radius: 5px 5px 0 0;
+        }
+        .dl_body{
+            padding:20px 30px 30px;
+        }
+        .dl_duration{
+            margin-top: 20px;
+        }
+        .dl_hours_duration{
+            margin-top: 20px;
+        }
+        .dl_hours_duration .form-check {
+            background: #e2eff1;
+            border: 1px solid #000000;
+            border-radius: 4px;
+            color: #17214d;
+            width: 102px;
+            padding:15px 10px;
+            display: flex;
+            flex-direction: column;
+        }
+        .checked-hour{
+            background: #17214d !important;
+            color: white !important;
+            border: 1px solid #f4a640 !important;
+        }
+        .checked-hour input[type="checkbox"]{
+            background-color: #ffffff !important;
+            border: 1px solid #f4a640 !important;
+        }
+        .dl_hours_duration .form-check input {
+            margin: 0;
+            margin-bottom: 10px;
+            border-color: #17214d;
+        }
+        .dl_hours_duration .form-check label{
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 29px;
+        }
+        .menu_close-btn {
+            width: fit-content;
+        }
+        .menu_close-btn > img {
+            background: rgb(238, 111, 111);
+            padding: 4px;
+            border-radius: 100%;
+            cursor: pointer;
+            transition: 0.2s all;
+            position: absolute;
+            right: -13px;
+            top: -14px;
+        }
+        .availability_check,
+        .test_booking .choose_location{
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            outline: none;
+            background-image: url("/frontend_assets/images/right-black-arrow.svg") !important;
+            background-size: 8px !important;
+            background-position: calc(100% - 14px) center !important;
+            background-repeat: no-repeat !important;
+            background: #fff7ed;
+            border: 1px solid #f4a640;
+            border-radius: 2px;
+            font-family: "Product Sans";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 17px;
+            line-height: 26px;
+            color: #17214d;
+            width: 100%;
+            max-width: 180px;
+            padding: 4px 23px 4px 11px;
+            margin-bottom: 10px;
+        }
+        .availability_check:focus{
+            box-shadow:none;
+            border: 1px solid #f4a640;
+        }
+        .dl_hours_duration button[type="submit"]{
+            font-family: "Product Sans";
+            font-size: 14px;
+            font-weight: 700;
+            color: #0a0951;
+            background: #f4a640;
+            text-transform: capitalize;
+            border-radius: 4px;
+            transition:all 0.3s;
+            padding: 12px 20px;
+            width: 100%;
+            max-width:224px;
+        }
+        .test_booking h4{
+            font-size: 18px;
+        }
+        .test_booking .choose_location{
+            max-width: 385px;
+            background: #17214d;
+            color: #ffffff;
+            border-radius:2px;
+            background-image: url("/frontend_assets/images/right-white.svg") !important;
+        }
+        .form-check-input[type=checkbox] {
+            width: 18px;
+            height: 18px;
+            margin-top: 1px;
+        }
+        .gender_check_list .form-check-input:checked ~ .form-check-label {
+            border: 1px solid #f4a640 ;
+        }
+
+        .form-check-input[type=checkbox]{
+            width: 20px;
+            height: 20px;
+            margin-top: 1px;
+        }
+        .password_reset a{
+            font-family:'Product Sans';
+            font-size: 16.5px;
+            line-height:22px;
+        }
+        .form-check-input[type=checkbox]:focus{
+            outline: 0;
+        }
+        .form-check-input[type=checkbox]{
+            background-color: transparent !important;
+            border-color: #E5E1DC;
+            cursor: pointer;
+        }
+        .form-check-input:checked[type=checkbox] {
+            background-image: url('/frontend_assets/images/check.png');
+            background-size: 10px;
+            background-repeat: no-repeat;
+            background-position:center;
+        }
+        .checked-hour{
+            background: #17214d !important;
+            color: white !important;
+            border: 1px solid #f4a640 !important;
+        }
+        .checked-hour input[type="checkbox"]{
+            background-color: #ffffff !important;
+            border: 1px solid #f4a640 !important;
+        }
+        .availability_check,
+        .test_booking .choose_location{
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            outline: none;
+            background-image: url("/frontend_assets/images/right-black-arrow.svg") !important;
+            background-size: 8px !important;
+            background-position: calc(100% - 14px) center !important;
+            background-repeat: no-repeat !important;
+            background: #fff7ed;
+            border: 1px solid #f4a640;
+            border-radius: 2px;
+            font-family: "Product Sans";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 17px;
+            line-height: 26px;
+            color: #17214d;
+            width: 100%;
+            max-width: 180px;
+            padding: 4px 23px 4px 11px;
+            margin-bottom: 10px;
+        }
     </style>
 
     <style>
@@ -277,7 +591,16 @@
         .star.active {
             color: #ffa500;
         }
-
+        .form-check{
+            min-height: 1.5rem;
+            margin-bottom: 0.125rem;
+        }
+        label {
+            display: inline-block;
+        }
+        .form-check-input {
+            position: unset;
+        }
     </style>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
@@ -1576,13 +1899,13 @@
     </div>
 
     <div class="modal fade" id="TimeSlotModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-dialog modal-md" role="document">
             <form id="book_time">
                 <input type="hidden" name="schedule_date">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Update Booking</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <h5 class="modal-title" id="exampleModalLabel" style="text-align: center;width: 100%">Booking Update</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="width: 50px">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -1592,31 +1915,61 @@
                         <input type="hidden" class="form-control" name="id" id="appt_id">
                         <input type="hidden" class="form-control" name="instructor_id" id="instructor_id">
                         <input type="hidden" class="form-control" name="type" id="typePackage">
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-4" id="TimerBlockDiv">
-                                <select name="timehour" id="timeHour" class="form-control" style="    padding: 7px;
-                                        width: 100%;
-                                        height: 41px;
-                                        border: 1px solid black;">
-                                    <option value="">Select Time Durations</option>
-                                    <option value="1">1 hour</option>
-                                    <option value="2">2 hour</option>
-                                </select>
-                                </div>
-                                <div class="col-md-4" id="lesonDivContent">
+                        <section class="book_lesson add_cart_sec">
+                            <div class="add_cart_wrapper">
+                                <div class="book_lesson_wrapper">
+                                    <!-- Choose driving-lesson time-date and hours-->
+                                    <div class="driving_lesson mb-4">
+                                        <div class="dl_body">
+                                            <div class="dl_duration">
+                                                <h4 class="text-center">Duration</h4>
+                                                <div class="dl_hours_duration">
+                                                    <form class="row" action="">
+                                                        <div class="d-flex justify-content-center">
+                                                            <div class="col-6 d-flex justify-content-end">
+                                                                <div class="form-check checked-hour" id="one_hour_div">
+                                                                    <input  class="form-check-input" id="one_hour" type="checkbox">
+                                                                    <label class="form-check-label" for="1">
+                                                                        1 hour
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <div class="form-check" id="two_hour_div">
+                                                                    <input class="form-check-input" id="two_hour" type="checkbox">
+                                                                    <label class="form-check-label" for="2">
+                                                                        2 hour
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
 
-                                </div>
-                                <div class="col-md-4">
-                                    <div id="show_slots"></div>
+                                                        <div class="d-flex justify-content-center">
+                                                            <div class="col-sm-6 col-12 mt-3  d-flex justify-content-sm-end justify-content-center">
+                                                                <select class="availability_check" aria-label="Default select example">
+                                                                    <option selected>Available Dates</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-6 col-12 mt-3 mb-sm-0 mb-2 d-flex justify-content-sm-start justify-content-center">
+                                                                <select class="availability_check" aria-label="Default select example">
+                                                                    <option selected>Available Times</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 mt-3 text-center">
+                                                            <button class="btn btn-primary" type="submit">UPDATE</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="available_dates_time row"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Choose driving-test time-date and locatin  -->
+
                                 </div>
                             </div>
-                        </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-success">Update</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </section>
                     </div>
                 </div>
             </form>
