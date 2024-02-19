@@ -1590,6 +1590,30 @@ class InstructorController extends Controller
 
     }
 
+    function get_location(Request $request){
+
+
+        $test_locations = UserTestLocations::join('test_locations', 'test_locations.id', 'user_test_locations.location_id')
+
+            ->select('test_locations.title', 'test_locations.id')
+
+            ->where('user_test_locations.user_id', $request->id)
+
+            ->get();
+
+      $html='<select class="form-select availability_check choose_location mx-auto" aria-label="Default select example" name="test_location" id="test_location">
+                                            <option value="0" selected>Choose your test location</option>';
+
+        foreach($test_locations as $test_location){
+            $html.='<option value="'.$test_location->id.'">'.$test_location->title.'</option>';
+        }
+
+        $html .='</select>';
+
+        return response()->json(['html' => $html]);
+
+    }
+
     function get_instructor_calendar2(Request $request){
 
         $user_working_time = WorkingTime::where('user_id', $request->id)->get();

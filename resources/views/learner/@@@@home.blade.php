@@ -1946,6 +1946,8 @@
                 $('#TimeSlotModal').modal('show');
                 $('select#TimerBlockDiv').hide();
                 $('div#TimerBlockDiv').hide();
+
+
                 jQuery.ajax({
                     url: '{{ url('get_instructor_calendar2') }}',
                     type: 'POST',

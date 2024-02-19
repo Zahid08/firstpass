@@ -1883,17 +1883,17 @@
                 <input type="hidden" name="schedule_date">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel" style="text-align: center;width: 100%">Booking Update Lesson</h5>
+                        <h5 class="modal-title" id="exampleModalLabel" style="text-align: center;width: 100%">Booking Update</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="width: 50px">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
 
-                        <input type="text" class="form-control" name="search_id" id="search_id">
-                        <input type="text" class="form-control" name="id" id="appt_id">
-                        <input type="text" class="form-control" name="instructor_id" id="instructor_id">
-                        <input type="text" class="form-control" name="type" id="typePackage">
+                        <input type="hidden" class="form-control" name="search_id" id="search_id">
+                        <input type="hidden" class="form-control" name="id" id="appt_id">
+                        <input type="hidden" class="form-control" name="instructor_id" id="instructor_id">
+                        <input type="hidden" class="form-control" name="type" id="typePackage">
 
                         <section class="book_lesson add_cart_sec">
                             <div class="add_cart_wrapper">
@@ -1928,7 +1928,7 @@
                                                             <div class="col-sm-6 col-12 mt-3  d-flex justify-content-sm-end justify-content-center" id="lesonDivContent">
 
                                                             </div>
-                                                            <div class="col-sm-6 col-12 mt-3 mb-sm-0 mb-2 d-flex justify-content-sm-start justify-content-center">
+                                                            <div class="col-sm-6 col-12 mt-3 mb-sm-0 mb-2 d-flex justify-content-sm-start justify-content-center" id="show_slots">
                                                                 <select class="availability_check" aria-label="Default select example">
                                                                     <option selected>Available Times</option>
                                                                 </select>
@@ -1956,7 +1956,13 @@
 
     <div class="modal fade" id="testPackageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md" role="document">
-            <form id="book_time">
+            <form id="book_time_pkg">
+
+                <input type="hidden" class="form-control" name="search_id" id="pkgsearch_id">
+                <input type="hidden" class="form-control" name="id" id="pkgappt_id">
+                <input type="hidden" class="form-control" name="instructor_id" id="pkginstructor_id">
+                <input type="hidden" class="form-control" name="type" id="pkgtypePackage">
+
                 <input type="hidden" name="schedule_date">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -1975,18 +1981,17 @@
                                             <div class="dl_duration test_booking">
                                                 <h4 class="text-center">Allan’s test location & availabilty displayed111</h4>
                                                 <div class="row dl_hours_duration">
-                                                    <form class="row" action="" id="packageForm">
-                                                        <div class="col-12">
+                                                        <div class="col-12" id="packageLocations">
                                                             <select class="form-select availability_check choose_location mx-auto" aria-label="Default select example">
                                                                 <option selected>Choose your test location</option>
                                                             </select>
                                                         </div>
-                                                        <div class="col-sm-6 col-12 mt-3  d-flex justify-content-sm-end justify-content-center">
+                                                        <div class="col-sm-6 col-12 mt-3  d-flex justify-content-sm-end justify-content-center" id="pkglesonDivContent">
                                                             <select class="form-select availability_check" aria-label="Default select example">
                                                                 <option selected>Test date</option>
                                                             </select>
                                                         </div>
-                                                        <div class="col-sm-6 col-12 mt-3 mb-sm-0 mb-2 d-flex justify-content-sm-start justify-content-center">
+                                                        <div class="col-sm-6 col-12 mt-3 mb-sm-0 mb-2 d-flex justify-content-sm-start justify-content-center" id="pkgSlots">
                                                             <select class="form-select availability_check" aria-label="Default select example">
                                                                 <option selected>Test start time</option>
                                                             </select>
@@ -1994,7 +1999,6 @@
                                                         <div class="col-12 mt-3 text-center">
                                                             <button class="btn btn-primary" type="submit">UPDATE</button>
                                                         </div>
-                                                    </form>
                                                 </div>
                                                 <div class="available_dates_time row"></div>
                                             </div>
@@ -2374,11 +2378,17 @@
             $('#typePackage').val(type);
 
             if (type=='lesson'){
-                alert(lessonHour);
+
                 if(lessonHour==1){
                     $('input#one_hour').prop('checked', true);
                 }
+
+                if(lessonHour==2){
+                    $('input#two_hour').prop('checked', true);
+                }
+
                 $('div#TimerBlockDiv').show();
+
                 jQuery.ajax({
                     url: '<?php echo e(url('get_instructor_calendar2')); ?>',
                     type: 'POST',
@@ -2393,22 +2403,50 @@
                 });
 
             }else {
+                $('#pkginstructor_id').val(instructor_id);
+                $('#pkgappt_id').val(id);
+                // $('#date_picker').val(start_date);
+                $('#pkgsearch_id').val(search_id);
+                $('#pkgtypePackage').val(type);
+
+
                 $('#testPackageModal').modal('show');
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
+
+                jQuery.ajax({
+                    url: '<?php echo e(url('get_location')); ?>',
+                    type: 'POST',
+                    data: {
+                        id:  $('#instructor_id').val(),
+                        type:'test',
+                    },
+                    success: function(response) {
+                        $('div#packageLocations').html(response.html);
+                    }
+                });
+
+                jQuery.ajax({
+                    url: '<?php echo e(url('get_instructor_calendar2')); ?>',
+                    type: 'POST',
+                    data: {
+                        id:  $('#instructor_id').val(),
+                        type:'test',
+                    },
+                    success: function(response) {
+                        $('div#pkglesonDivContent').html(response.html);
+                    }
+                });
             }
         }
+
+        $(document).on('change','select#test_location_date', function(event) {
+            var start_date = this.value;
+            $.post('<?php echo e(url('get-slots1')); ?>',
+                { hour:1, start_date:start_date, instructor_id: $('#instructor_id').val(), userid:<?php echo e(auth()->user()->id); ?>, '_token': '<?php echo e(@csrf_token()); ?>' },
+                function (data) {
+                    $("#pkgSlots").html('');
+                    $("#pkgSlots").append(data.html);
+                });
+        });
 
         $(document).on('change','select#timeHour', function(event) {
             jQuery.ajax({
@@ -2426,9 +2464,20 @@
 
         $(document).on('change','#lesson_date', function(event) {
             var start_date = this.value;
-            if ($('select#timeHour').val()){
+
+            let _1hourDiv = document.getElementById("one_hour_div");
+            let _2hourDiv = document.getElementById("two_hour_div");
+
+            let hour=0;
+            if ($('#one_hour').is(':checked')) {
+                hour=1;
+            }else if($('#two_hour').is(':checked')){
+                hour=2;
+            }
+
+            if (hour>0){
                 $.post('<?php echo e(url('get-slots')); ?>',
-                    { hour:$('select#timeHour').val(), start_date:start_date, instructor_id: $('#instructor_id').val(), userid:<?php echo e(auth()->user()->id); ?>, '_token': '<?php echo e(@csrf_token()); ?>' },
+                    { hour:hour, start_date:start_date, instructor_id: $('#instructor_id').val(), userid:<?php echo e(auth()->user()->id); ?>, '_token': '<?php echo e(@csrf_token()); ?>' },
                     function (data) {
                         $("#show_slots").html('');
                         $("#show_slots").append(data.html);
@@ -2612,7 +2661,7 @@
                 })
         });
 
-        $('#book_time').submit(function (){
+        $('#book_time,#book_time_pkg').submit(function (){
 
             var data = new FormData(this);
 

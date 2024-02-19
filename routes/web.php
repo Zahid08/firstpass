@@ -145,6 +145,7 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
 
     Route::post('get_instructor_calendar', 'InstructorController@get_instructor_calendar');
     Route::post('get_instructor_calendar2', 'InstructorController@get_instructor_calendar2');
+    Route::post('get_location', 'InstructorController@get_location');
 
     Route::post('get-review', 'InstructorController@get_review')->name('get_review');
     Route::post('give-review', 'InstructorController@save_review')->name('give_review');
