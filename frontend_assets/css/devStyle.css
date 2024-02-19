@@ -1,0 +1,235 @@
+.service_content ul li:hover{
+    transform: scale(1.05);
+}
+.learner_dashboard ul li:hover,
+.book_with_confidence_list ul li:hover,
+.driving_package_inc_box .test_list li:hover{
+    transform: scale(1.02);
+}
+.service_content ul li,.learner_dashboard ul li,.book_with_confidence_list ul li,
+.driving_package_inc_box .test_list li{
+    align-items: center;
+    transition: transform 300ms ease-in-out;
+    cursor: pointer;
+}
+.whay_first_content .btn.book_now_btn,.book_test_package,.book_btn{
+    transition: transform 300ms ease-in-out;
+}
+.whay_first_content .btn.book_now_btn:hover,.book_test_package:hover,.book_btn:hover {
+    background: #e69934;
+    transform: scale(1.05);
+    color: black;
+    border: 1px solid #e69934;
+}
+
+.driving_test_content .test_list li{
+    transition: transform 300ms ease-in-out;
+    cursor: pointer;
+}
+.driving_test_content .test_list li:hover{
+    transform: scale(1.05);
+}
+
+.service_box {
+    /*border-radius: 11px;*/
+}
+
+/*--------Search List---*/
+.hidden {
+    display: none;
+}
+
+.pkg_icard_img img {
+    width: 148px;
+    height: 148px;
+}
+
+@media (max-width: 480px){
+    .navbar-brand img, .center_logo img {
+        width: 92px!important;
+    }
+    .navbar-brand {
+        margin-right: -3%!important;
+    }
+}
+
+
+
+
+
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+/*preloder css*/
+.preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    background:rgba(255, 255, 255, 0.99);
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#ht-preloader {
+    background:rgba(255, 255, 255, 0.99);
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    overflow: hidden !important;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
+}
+
+.clear-loader {
+    z-index: 999;
+    box-sizing: border-box;
+    display: inline-block;
+    left: 50%;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loader {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    border: 5px solid transparent;
+    border-top-color: #F4A640;
+    border-bottom-color: #F4A640;
+    border-radius: 50%;
+    animation: loading 5s ease-in-out 0s infinite;
+}
+
+.loader-div {
+    display: block;
+    margin: 50px auto;
+    width: 100px;
+    height: 100px;
+    border: 5px solid transparent;
+    border-right-color: #F4A640 ;
+    border-left-color: #F4A640 ;
+    border-radius: 50%;
+    line-height: 90px;
+    color: #322f55;
+    animation: loading1 5s ease-in-out 0s infinite;
+}
+
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    25% {
+        transform: rotate(180deg);
+    }
+    50% {
+        transform: scale(0.5, 0.5);
+        border-top-color: #F4A640 ;
+        border-bottom-color: #F4A640 ;
+    }
+    75% {
+        transform: rotate(-180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+}
+
+@keyframes loading1 {
+    0% {
+        transform: rotate(360deg);
+    }
+    25% {
+        transform: rotate(-90deg);
+    }
+    50% {
+        transform: scale(2, 2);
+    }
+    75% {
+        transform: rotate(90deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.btn-fill-rounded {
+    font-size: 18px;
+    color: #f6f7f6;
+    font-weight: 600;
+    border-radius: 11px;
+    background-image: linear-gradient(115deg, #F4A640 0%, #F4A640 100%);
+    display: inline-block;
+    padding: 19px 78px;
+    color: rgba(255, 255, 255, 0.99);
+}
+
+.btn-fill-rounded:hover {
+    color: rgba(255, 255, 255, 0.99);
+    background: #ff8551;
+}
+
+@media (max-width: 992px) {
+    .btn-fill-rounded {
+        font-size: 16px;
+        padding: 14px 45px;
+    }
+}
+
+@media (max-width: 576px) {
+    .btn-fill-rounded {
+        font-size: 14px;
+        padding: 12px 35px;
+    }
+}
+
+.btn-fill-pill {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.99);
+    font-weight: 500;
+    border-radius: 23px;
+    background-image: linear-gradient(90deg, #F4A640 0%, #F4A640 100%);
+    display: inline-block;
+    padding: 11px 48px;
+}
+
+.btn-fill-pill:hover {
+    color: #fff;
+}
+
+/*--------------------Add Hover Effect---------------*/
+.service_box,.experience-card{
+    transition: 0.5s all ease-in-out;
+}
+.service_box:hover,.experience-card:hover {
+    transform: scale(1.05);
+}
+
+.package_list{
+    transition: transform 300ms ease-in-out!important;
+    cursor: pointer!important;
+}
+.package_list:hover {
+    transform: scale(1.05);
+}
+
+.test_pack_price_content li{
+    transition: transform 300ms ease-in-out;
+    cursor: pointer;
+}
+
+.test_pack_price_content li:hover {
+    transform: scale(1.05);
+}

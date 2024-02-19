@@ -1,0 +1,233 @@
+.pkg_icard_img img {
+    width: 148px;
+    height: 148px;
+}
+.icard_button_profile{
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.pkg_icard_book_btn{
+    padding: 14px 118px;
+    text-decoration: none;
+    transition: transform 300ms ease-in-out;
+}
+.pkg_icard_book_btn:hover{
+    transform: scale(1.05);
+}
+.pkg_icard_buttons{
+    margin-bottom: 31px;
+}
+@media (min-width: 768px) {
+    .no-data-available {
+        display: flex;
+    }
+}
+.pull-right {
+    margin-right: 46px;
+}
+.close {
+    background-color: #fff; /* Set the background color to white */
+    border: none; /* Remove the border */
+    border-radius: 50%; /* Make it a circle by setting border-radius to 50% */
+    cursor: pointer; /* Set cursor to pointer for indicating it's clickable */
+    outline: none; /* Remove default focus outline */
+    padding: 0; /* Remove any default padding */
+    width: 30px; /* Set the width and height to your desired size */
+    height: 30px;
+}
+
+.close span {
+    display: block;
+    font-size: 24px; /* Adjust the font size of the 'x' */
+    line-height: 30px; /* Center the 'x' vertically */
+    text-align: center;
+}
+
+.close:hover {
+    background-color: #f0f0f0; /* Change background color on hover */
+}
+
+.calendar-extra .col-md-12 {
+    display: flex!important;
+    flex-direction: column!important;
+    align-items: center!important;
+}
+.calendar-extra .btn {
+    width: 50% !important;
+}
+.package_list{
+    transition: transform 300ms ease-in-out!important;
+    cursor: pointer!important;
+}
+.package_list:hover {
+    transform: scale(1.05);
+}
+
+.test_pack_price_content li{
+    transition: transform 300ms ease-in-out;
+    cursor: pointer;
+}
+
+.test_pack_price_content li:hover {
+    transform: scale(1.05);
+}
+
+
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+/*preloder css*/
+.preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    background:rgba(255, 255, 255, 0.99);
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#ht-preloader {
+    background:rgba(255, 255, 255, 0.99);
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    overflow: hidden !important;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
+}
+
+.clear-loader {
+    z-index: 999;
+    box-sizing: border-box;
+    display: inline-block;
+    left: 50%;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loader {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    border: 5px solid transparent;
+    border-top-color: #F4A640;
+    border-bottom-color: #F4A640;
+    border-radius: 50%;
+    animation: loading 5s ease-in-out 0s infinite;
+}
+
+.loader-div {
+    display: block;
+    margin: 50px auto;
+    width: 100px;
+    height: 100px;
+    border: 5px solid transparent;
+    border-right-color: #F4A640 ;
+    border-left-color: #F4A640 ;
+    border-radius: 50%;
+    line-height: 90px;
+    color: #322f55;
+    animation: loading1 5s ease-in-out 0s infinite;
+}
+
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    25% {
+        transform: rotate(180deg);
+    }
+    50% {
+        transform: scale(0.5, 0.5);
+        border-top-color: #F4A640 ;
+        border-bottom-color: #F4A640 ;
+    }
+    75% {
+        transform: rotate(-180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+}
+
+@keyframes loading1 {
+    0% {
+        transform: rotate(360deg);
+    }
+    25% {
+        transform: rotate(-90deg);
+    }
+    50% {
+        transform: scale(2, 2);
+    }
+    75% {
+        transform: rotate(90deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.btn-fill-rounded {
+    font-size: 18px;
+    color: #f6f7f6;
+    font-weight: 600;
+    border-radius: 11px;
+    background-image: linear-gradient(115deg, #F4A640 0%, #F4A640 100%);
+    display: inline-block;
+    padding: 19px 78px;
+    color: rgba(255, 255, 255, 0.99);
+}
+
+.btn-fill-rounded:hover {
+    color: rgba(255, 255, 255, 0.99);
+    background: #ff8551;
+}
+
+@media (max-width: 992px) {
+    .btn-fill-rounded {
+        font-size: 16px;
+        padding: 14px 45px;
+    }
+}
+
+@media (max-width: 576px) {
+    .btn-fill-rounded {
+        font-size: 14px;
+        padding: 12px 35px;
+    }
+}
+
+.btn-fill-pill {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.99);
+    font-weight: 500;
+    border-radius: 23px;
+    background-image: linear-gradient(90deg, #F4A640 0%, #F4A640 100%);
+    display: inline-block;
+    padding: 11px 48px;
+}
+
+.btn-fill-pill:hover {
+    color: #fff;
+}
+.pkg_icard_book_btn{
+    transition: transform 300ms ease-in-out!important;
+}
+.pkg_icard_book_btn:hover{
+    transform: scale(1.05);
+}

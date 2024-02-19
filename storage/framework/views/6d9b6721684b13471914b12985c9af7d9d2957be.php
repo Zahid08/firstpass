@@ -1,0 +1,1 @@
+<?php /**PATH /home/zenstech/public_html/resources/views/frontend/layouts/partials/modal.blade.php ENDPATH**/ ?>
