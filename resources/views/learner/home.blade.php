@@ -90,7 +90,7 @@
             background: #F4A640!important;
         }
         select.form-select.availability_check {
-            padding: 7px;
+            /*padding: 7px;*/
             width: 100%;
         }
         .switch {
@@ -450,6 +450,13 @@
             right: -13px;
             top: -14px;
         }
+        .test_booking .choose_location {
+            max-width: 385px;
+            background: #17214d;
+            color: #ffffff;
+            border-radius: 2px;
+            background-image: url('/frontend_assets/images/right-white.svg') !important;
+        }
         .availability_check,
         .test_booking .choose_location{
             appearance: none;
@@ -470,7 +477,6 @@
             line-height: 26px;
             color: #17214d;
             width: 100%;
-            max-width: 180px;
             padding: 4px 23px 4px 11px;
             margin-bottom: 10px;
         }
@@ -542,30 +548,6 @@
         .checked-hour input[type="checkbox"]{
             background-color: #ffffff !important;
             border: 1px solid #f4a640 !important;
-        }
-        .availability_check,
-        .test_booking .choose_location{
-            appearance: none;
-            -moz-appearance: none;
-            -webkit-appearance: none;
-            outline: none;
-            background-image: url("/frontend_assets/images/right-black-arrow.svg") !important;
-            background-size: 8px !important;
-            background-position: calc(100% - 14px) center !important;
-            background-repeat: no-repeat !important;
-            background: #fff7ed;
-            border: 1px solid #f4a640;
-            border-radius: 2px;
-            font-family: "Product Sans";
-            font-style: normal;
-            font-weight: 400;
-            font-size: 17px;
-            line-height: 26px;
-            color: #17214d;
-            width: 100%;
-            max-width: 180px;
-            padding: 4px 23px 4px 11px;
-            margin-bottom: 10px;
         }
     </style>
 
@@ -1168,10 +1150,10 @@
                                             @if(strtotime($today_time)<=strtotime($twelveHourUp))
                                                 @if($UpcomingAppointment->status=='confirmed')
                                                     @if(strtotime($today_time)<=strtotime($twelveHourUp))
-                                                        <a data-toggle="tooltip" data-title="Cancel booking" href="javascript:;" onclick="AppointmentComplete(this)" data-appointment-id="<?=$UpcomingAppointment->id?>" data-instructor-id="<?=$UpcomingAppointment->instructor_id?>"  class="btn btn-danger pull-right" style="margin-bottom: 20px;border-radius: 8px;"><i class="fa fa-times"></i> Cancel</a>
+                                                        <a data-toggle="tooltip" data-title="Cancel booking" href="javascript:;" onclick="AppointmentComplete(this)" data-appointment-id="<?=$UpcomingAppointment->id?>" data-instructor-id="<?=$UpcomingAppointment->instructor_id?>" data-lesson-hour="<?=$UpcomingAppointment->lesson_hour?>"  class="btn btn-danger pull-right" style="margin-bottom: 20px;border-radius: 8px;"><i class="fa fa-times"></i> Cancel</a>
                                                     @endif
                                                     @if(strtotime($today_time)<=strtotime($sixHourTimeUp))
-                                                        <a  href="javascript:;" onclick="ShowTimeSlots(this)" data-type="{{$UpcomingAppointment->type}}" data-id="<?=$UpcomingAppointment->id?>" data-search-id="<?=$UpcomingAppointment->search_id?>" data-instructor-id="<?=$UpcomingAppointment->instructor_id?>" data-start-date="<?=$UpcomingAppointment->schedule_date?>" class="pull-right btn btn-success" style="margin-bottom: 20px;margin-right: 10px;border-radius: 8px;"><i class="fa fa-calendar"></i> Reschedule</a>
+                                                        <a  href="javascript:;" onclick="ShowTimeSlots(this)" data-type="{{$UpcomingAppointment->type}}" data-id="<?=$UpcomingAppointment->id?>" data-search-id="<?=$UpcomingAppointment->search_id?>" data-lesson-hour="<?=$UpcomingAppointment->lesson_hour?>" data-instructor-id="<?=$UpcomingAppointment->instructor_id?>" data-start-date="<?=$UpcomingAppointment->schedule_date?>" class="pull-right btn btn-success" style="margin-bottom: 20px;margin-right: 10px;border-radius: 8px;"><i class="fa fa-calendar"></i> Reschedule</a>
                                                     @endif
                                                 @elseif($UpcomingAppointment->status=='cancelled_payment_wave')
                                                     <div>
@@ -1419,10 +1401,10 @@
                                                     @if(strtotime($today_time)<=strtotime($twelveHour))
                                                         @if($appointment->status=='confirmed')
                                                             @if(strtotime($today_time)<=strtotime($twelveHour))
-                                                                <a data-toggle="tooltip" data-title="Cancel booking" href="javascript:;" onclick="AppointmentComplete(this)" data-appointment-id="<?=$appointment->id?>" data-instructor-id="<?=$appointment->instructor_id?>"  class="btn btn-danger pull-right" style="margin-bottom: 20px;border-radius: 8px;"><i class="fa fa-times"></i> Cancel</a>
+                                                                <a data-toggle="tooltip" data-title="Cancel booking" href="javascript:;" onclick="AppointmentComplete(this)" data-appointment-id="<?=$appointment->id?>" data-instructor-id="<?=$appointment->instructor_id?>" data-lesson-hour="<?=$appointment->lesson_hour?>"  class="btn btn-danger pull-right" style="margin-bottom: 20px;border-radius: 8px;"><i class="fa fa-times"></i> Cancel</a>
                                                             @endif
                                                             @if(strtotime($today_time)<=strtotime($sixHourTime))
-                                                                <a  href="javascript:;" onclick="ShowTimeSlots(this)" data-type="{{$appointment->type}}" data-id="<?=$appointment->id?>" data-search-id="<?=$appointment->search_id?>" data-instructor-id="<?=$appointment->instructor_id?>" data-start-date="<?=$appointment->schedule_date?>" class="pull-right btn btn-success" style="margin-bottom: 20px;margin-right: 10px;border-radius: 8px;"><i class="fa fa-calendar"></i> Reschedule</a>
+                                                                <a  href="javascript:;" onclick="ShowTimeSlots(this)" data-type="{{$appointment->type}}" data-id="<?=$appointment->id?>" data-search-id="<?=$appointment->search_id?>" data-instructor-id="<?=$appointment->instructor_id?>" data-lesson-hour="<?=$appointment->lesson_hour?>" data-start-date="<?=$appointment->schedule_date?>" class="pull-right btn btn-success" style="margin-bottom: 20px;margin-right: 10px;border-radius: 8px;"><i class="fa fa-calendar"></i> Reschedule</a>
                                                             @endif
                                                         @elseif($appointment->status=='cancelled_payment_wave')
                                                             <div>
@@ -1640,10 +1622,10 @@
                                                         @if(strtotime($today_time3)<=strtotime($twelveHour3))
                                                             @if($appointment->status=='confirmed')
                                                                 @if(strtotime($today_time3)<=strtotime($twelveHour3))
-                                                                    <a data-toggle="tooltip" data-title="Cancel booking" href="javascript:;" onclick="AppointmentComplete(this)" data-appointment-id="<?=$appointment->id?>" data-instructor-id="<?=$appointment->instructor_id?>"  class="btn btn-danger pull-right" style="margin-bottom: 20px;border-radius: 8px;"><i class="fa fa-times"></i> Cancel</a>
+                                                                    <a data-toggle="tooltip" data-title="Cancel booking" href="javascript:;" onclick="AppointmentComplete(this)" data-appointment-id="<?=$appointment->id?>" data-instructor-id="<?=$appointment->instructor_id?>" data-lesson-hour="<?=$appointment->lesson_hour?>"  class="btn btn-danger pull-right" style="margin-bottom: 20px;border-radius: 8px;"><i class="fa fa-times"></i> Cancel</a>
                                                                 @endif
                                                                 @if(strtotime($today_time3)<=strtotime($sixHourTime3))
-                                                                    <a  href="javascript:;" onclick="ShowTimeSlots(this)" data-type="{{$appointment->type}}" data-id="<?=$appointment->id?>" data-search-id="<?=$appointment->search_id?>" data-instructor-id="<?=$appointment->instructor_id?>" data-start-date="<?=$appointment->schedule_date?>" class="pull-right btn btn-success" style="margin-bottom: 20px;margin-right: 10px;border-radius: 8px;"><i class="fa fa-calendar"></i> Reschedule</a>
+                                                                    <a  href="javascript:;" onclick="ShowTimeSlots(this)" data-type="{{$appointment->type}}" data-id="<?=$appointment->id?>" data-search-id="<?=$appointment->search_id?>" data-instructor-id="<?=$appointment->instructor_id?>" data-lesson-hour="<?=$appointment->lesson_hour?>" data-start-date="<?=$appointment->schedule_date?>" class="pull-right btn btn-success" style="margin-bottom: 20px;margin-right: 10px;border-radius: 8px;"><i class="fa fa-calendar"></i> Reschedule</a>
                                                                 @endif
                                                             @elseif($appointment->status=='cancelled_payment_wave')
                                                                 <div>
@@ -1904,17 +1886,18 @@
                 <input type="hidden" name="schedule_date">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel" style="text-align: center;width: 100%">Booking Update</h5>
+                        <h5 class="modal-title" id="exampleModalLabel" style="text-align: center;width: 100%">Booking Update Lesson</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="width: 50px">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
 
-                        <input type="hidden" class="form-control" name="search_id" id="search_id">
-                        <input type="hidden" class="form-control" name="id" id="appt_id">
-                        <input type="hidden" class="form-control" name="instructor_id" id="instructor_id">
-                        <input type="hidden" class="form-control" name="type" id="typePackage">
+                        <input type="text" class="form-control" name="search_id" id="search_id">
+                        <input type="text" class="form-control" name="id" id="appt_id">
+                        <input type="text" class="form-control" name="instructor_id" id="instructor_id">
+                        <input type="text" class="form-control" name="type" id="typePackage">
+
                         <section class="book_lesson add_cart_sec">
                             <div class="add_cart_wrapper">
                                 <div class="book_lesson_wrapper">
@@ -1924,7 +1907,7 @@
                                             <div class="dl_duration">
                                                 <h4 class="text-center">Duration</h4>
                                                 <div class="dl_hours_duration">
-                                                    <form class="row" action="">
+                                                    <form class="row" action="#" id="drivingLessonAddingForm">
                                                         <div class="d-flex justify-content-center">
                                                             <div class="col-6 d-flex justify-content-end">
                                                                 <div class="form-check checked-hour" id="one_hour_div">
@@ -1945,10 +1928,8 @@
                                                         </div>
 
                                                         <div class="d-flex justify-content-center">
-                                                            <div class="col-sm-6 col-12 mt-3  d-flex justify-content-sm-end justify-content-center">
-                                                                <select class="availability_check" aria-label="Default select example">
-                                                                    <option selected>Available Dates</option>
-                                                                </select>
+                                                            <div class="col-sm-6 col-12 mt-3  d-flex justify-content-sm-end justify-content-center" id="lesonDivContent">
+
                                                             </div>
                                                             <div class="col-sm-6 col-12 mt-3 mb-sm-0 mb-2 d-flex justify-content-sm-start justify-content-center">
                                                                 <select class="availability_check" aria-label="Default select example">
@@ -1967,6 +1948,62 @@
                                     </div>
                                     <!-- Choose driving-test time-date and locatin  -->
 
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal fade" id="testPackageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md" role="document">
+            <form id="book_time">
+                <input type="hidden" name="schedule_date">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel" style="text-align: center;width: 100%">Booking Update</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="width: 50px">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <section class="book_lesson add_cart_sec">
+                            <div class="add_cart_wrapper">
+                                <div class="book_lesson_wrapper">
+                                    <!-- Choose driving-lesson time-date and hours-->
+                                    <div class="driving_lesson mb-4">
+                                        <div class="dl_body">
+                                            <div class="dl_duration test_booking">
+                                                <h4 class="text-center">Allan’s test location & availabilty displayed111</h4>
+                                                <div class="row dl_hours_duration">
+                                                    <form class="row" action="" id="packageForm">
+                                                        <div class="col-12">
+                                                            <select class="form-select availability_check choose_location mx-auto" aria-label="Default select example">
+                                                                <option selected>Choose your test location</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-sm-6 col-12 mt-3  d-flex justify-content-sm-end justify-content-center">
+                                                            <select class="form-select availability_check" aria-label="Default select example">
+                                                                <option selected>Test date</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-sm-6 col-12 mt-3 mb-sm-0 mb-2 d-flex justify-content-sm-start justify-content-center">
+                                                            <select class="form-select availability_check" aria-label="Default select example">
+                                                                <option selected>Test start time</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-12 mt-3 text-center">
+                                                            <button class="btn btn-primary" type="submit">UPDATE</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="available_dates_time row"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Choose driving-test time-date and locatin  -->
                                 </div>
                             </div>
                         </section>
@@ -2277,8 +2314,55 @@
 
         }
 
+        $('input#one_hour').change(function() {
+            let _1hour_checkbox = document.getElementById("one_hour");
+            let _2hour_checkbox = document.getElementById("two_hour");
+
+            let _1hourDiv = document.getElementById("one_hour_div");
+            let _2hourDiv = document.getElementById("two_hour_div");
+
+            if(this.checked) {
+                _1hour_checkbox.setAttribute("checked", "checked");
+                _1hourDiv.classList.add("checked-hour");
+
+                _2hour_checkbox.removeAttribute("checked");
+                _2hourDiv.classList.remove("checked-hour");
+                $('input#two_hour').prop('checked', false);
+            }else {
+                _1hour_checkbox.removeAttribute("checked");
+                _1hourDiv.classList.remove("checked-hour");
+            }
+
+            $('select#lesson_date').trigger('change');
+
+        });
+
+        $('input#two_hour').change(function() {
+            let _1hour_checkbox = document.getElementById("one_hour");
+            let _2hour_checkbox = document.getElementById("two_hour");
+
+            let _1hourDiv = document.getElementById("one_hour_div");
+            let _2hourDiv = document.getElementById("two_hour_div");
+
+            if(this.checked) {
+                _2hour_checkbox.setAttribute("checked", "checked");
+                _2hourDiv.classList.add("checked-hour");
+
+                $('input#one_hour').prop('checked', false);
+                _1hour_checkbox.removeAttribute("checked");
+                _1hourDiv.classList.remove("checked-hour");
+            }else {
+                _2hour_checkbox.removeAttribute("checked");
+                _2hourDiv.classList.remove("checked-hour");
+            }
+
+            $('select#lesson_date').trigger('change');
+        });
+
+
         function ShowTimeSlots(e){
             var instructor_id = $(e).attr('data-instructor-id');
+            var lessonHour = $(e).attr('data-lesson-hour');
             var start_date = $(e).attr('data-start-date');
             var search_id = $(e).attr('data-search-id');
             var id = $(e).attr('data-id');
@@ -2293,23 +2377,45 @@
             $('#typePackage').val(type);
 
             if (type=='lesson'){
+
+                if(lessonHour==1){
+                    $('input#one_hour').prop('checked', true);
+                }
+
+                if(lessonHour==2){
+                    $('input#two_hour').prop('checked', true);
+                }
+
                 $('div#TimerBlockDiv').show();
-                $('#TimeSlotModal').modal('show');
-            }else {
-                $('#TimeSlotModal').modal('show');
-                $('select#TimerBlockDiv').hide();
-                $('div#TimerBlockDiv').hide();
+
                 jQuery.ajax({
                     url: '{{ url('get_instructor_calendar2') }}',
                     type: 'POST',
                     data: {
-                        id:  $('#instructor_id').val(),
-                        type:'test',
+                        id: instructor_id,
+                        type:'lesson',
                     },
                     success: function(response) {
                         $('div#lesonDivContent').html(response.html);
+                        $('#TimeSlotModal').modal('show');
                     }
                 });
+
+            }else {
+                $('#testPackageModal').modal('show');
+                {{--$('select#TimerBlockDiv').hide();--}}
+                {{--$('div#TimerBlockDiv').hide();--}}
+                {{--jQuery.ajax({--}}
+                {{--    url: '{{ url('get_instructor_calendar2') }}',--}}
+                {{--    type: 'POST',--}}
+                {{--    data: {--}}
+                {{--        id:  $('#instructor_id').val(),--}}
+                {{--        type:'test',--}}
+                {{--    },--}}
+                {{--    success: function(response) {--}}
+                {{--        $('div#lesonDivContent').html(response.html);--}}
+                {{--    }--}}
+                {{--});--}}
             }
         }
 
@@ -2325,6 +2431,18 @@
                     $('div#lesonDivContent').html(response.html);
                 }
             });
+        });
+
+        $(document).on('change','#lesson_date', function(event) {
+            var start_date = this.value;
+            if ($('select#timeHour').val()){
+                $.post('{{url('get-slots')}}',
+                    { hour:$('select#timeHour').val(), start_date:start_date, instructor_id: $('#instructor_id').val(), userid:{{auth()->user()->id}}, '_token': '{{ @csrf_token() }}' },
+                    function (data) {
+                        $("#show_slots").html('');
+                        $("#show_slots").append(data.html);
+                    });
+            }
         });
 
 

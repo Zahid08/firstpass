@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('content'); ?>
     <style>
         .booked_lessons_list{
@@ -169,7 +168,7 @@
                             </ul>
                         </div>
                         <div class="dl_duration">
-                            <h4 class="text-center">Duration</h4>
+                            <h4 class="text-center">Duration111</h4>
                             <div class="dl_hours_duration">
                                 <form class="row" action="#" id="drivingLessonAddingForm">
                                     <div class="col-12 d-flex gap-3 justify-content-center align-items-center">

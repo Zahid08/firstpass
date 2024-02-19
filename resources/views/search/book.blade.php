@@ -30,6 +30,8 @@
             }
     }
 
+    $user_working_time = \App\WorkingTime::where('user_id', $instructor_id)->get();
+
     $userWday = array();
     foreach ($user_working_time as $key => $uWt)
     {
